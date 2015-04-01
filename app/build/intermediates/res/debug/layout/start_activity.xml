@@ -40,4 +40,4 @@
         android:text="Speak Instructions...."
         android:id="@+id/textView" />
 
-</LinearLayout><!-- From: file:/C:/Users/Brian/Downloads/FypApp-master1/app/src/main/res/layout/start_activity.xml -->
+</LinearLayout><!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/src/main/res/layout/start_activity.xml -->
