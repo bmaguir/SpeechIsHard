@@ -40,6 +40,9 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="servlet-api-2.5" level="project" />
+    <orderEntry type="library" exported="" name="appengine-endpoints-1.9.1" level="project" />
+    <orderEntry type="library" exported="" name="appengine-endpoints-deps-1.9.1" level="project" />
+    <orderEntry type="library" exported="" name="appengine-api-1.0-sdk-1.9.1" level="project" />
   </component>
 </module>
 

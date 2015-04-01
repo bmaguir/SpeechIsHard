@@ -1,9 +1,12 @@
 package com.bmaguir.FypApp;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.util.Pair;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,6 +20,20 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
 import com.google.android.gms.games.GamesActivityResultCodes;
 import com.google.android.gms.games.multiplayer.Multiplayer;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Brian on 19/02/2015.
@@ -86,10 +103,14 @@ public class SignIn extends Activity  implements
     }
 
     public void play(View v){
+        new ServletPostAsyncTask().execute(new Pair<Context, String>(this, "Manfred"));
+        //commented out for debugging backend
+        /*
         if(mGoogleApiClient.isConnected()) {
             Intent intent = new Intent(this, StartActivity.class);
             startActivity(intent);
         }
+        //*/
     }
 
     /**
@@ -195,8 +216,11 @@ public class SignIn extends Activity  implements
 
         //start game activity
         if(mSignInAutomatically) {
+            //commented out for debugging backend!
+            /*
             Intent intent = new Intent(this, StartActivity.class);
             startActivityForResult(intent, START_ACTIVITY_REQUEST);
+            //*/
         }
     }
 
@@ -235,6 +259,42 @@ public class SignIn extends Activity  implements
         } catch (IntentSender.SendIntentException e) {
             Log.e(TAG, "Exception while starting resolution activity", e);
             retryConnecting();
+        }
+    }
+
+    class ServletPostAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
+        private Context context;
+
+        @Override
+        protected String doInBackground(Pair<Context, String>... params) {
+            context = params[0].first;
+            String name = params[0].second;
+
+            HttpClient httpClient = new DefaultHttpClient();
+            HttpPost httpPost = new HttpPost("http://10.0.2.2:8080/hello"); // 10.0.2.2 is localhost's IP address in Android emulator
+            try {
+                // Add name data to request
+                List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(1);
+                nameValuePairs.add(new BasicNameValuePair("name", name));
+                httpPost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+                // Execute HTTP Post Request
+                HttpResponse response = httpClient.execute(httpPost);
+                if (response.getStatusLine().getStatusCode() == 200) {
+                    return EntityUtils.toString(response.getEntity());
+                }
+                return "Error: " + response.getStatusLine().getStatusCode() + " " + response.getStatusLine().getReasonPhrase();
+
+            } catch (ClientProtocolException e) {
+                return e.getMessage();
+            } catch (IOException e) {
+                return e.getMessage();
+            }
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            Toast.makeText(context, result, Toast.LENGTH_LONG).show();
         }
     }
 }
