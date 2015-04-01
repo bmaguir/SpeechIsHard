@@ -1,0 +1,100 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .gitattributes
+* .gitignore
+* FypApp-master.iml
+* FypApp.iml
+* FypApp\
+* FypApp\AndroidManifest.xml
+* FypApp\FypApp.iml
+* FypApp\assets\
+* FypApp\assets\bin\
+* FypApp\assets\bin\Data\
+* FypApp\assets\bin\Data\Managed\
+* FypApp\assets\bin\Data\Managed\Assembly-CSharp.dll
+* FypApp\assets\bin\Data\Managed\Assembly-UnityScript.dll
+* FypApp\assets\bin\Data\Managed\Mono.Security.dll
+* FypApp\assets\bin\Data\Managed\System.Core.dll
+* FypApp\assets\bin\Data\Managed\System.dll
+* FypApp\assets\bin\Data\Managed\UnityEngine.UI.dll
+* FypApp\assets\bin\Data\Managed\UnityEngine.dll
+* FypApp\assets\bin\Data\Managed\mscorlib.dll
+* FypApp\assets\bin\Data\PlayerConnectionConfigFile
+* FypApp\assets\bin\Data\Resources\
+* FypApp\assets\bin\Data\Resources\unity_builtin_extra
+* FypApp\assets\bin\Data\mainData
+* FypApp\assets\bin\Data\settings.xml
+* FypApp\assets\bin\Data\sharedassets0.assets
+* FypApp\assets\bin\Data\splash.png
+* FypApp\assets\bin\Data\unity default resources
+* FypApp\gen\
+* FypApp\gen\com\
+* FypApp\gen\com\bmaguir\
+* FypApp\gen\com\bmaguir\FypApp\
+* FypApp\gen\com\bmaguir\FypApp\BuildConfig.java
+* FypApp\gen\com\bmaguir\FypApp\Manifest.java
+* FypApp\gen\com\bmaguir\FypApp\R.java
+* FypApp\libs\
+* FypApp\libs\armeabi-v7a\
+* FypApp\libs\armeabi-v7a\gdbserver
+* FypApp\libs\armeabi-v7a\libmain.so
+* FypApp\libs\armeabi-v7a\libmono.so
+* FypApp\libs\armeabi-v7a\libunity.so
+* FypApp\libs\unity-classes.jar
+* FypApp\libs\x86\
+* FypApp\libs\x86\gdbserver
+* FypApp\libs\x86\libmain.so
+* FypApp\libs\x86\libmono.so
+* FypApp\libs\x86\libunity.so
+* FypApp\project.properties
+* FypApp\res\
+* FypApp\res\drawable\
+* FypApp\res\drawable\app_icon.png
+* FypApp\res\values\
+* FypApp\res\values\strings.xml
+* FypApp\src\
+* FypApp\src\com\
+* FypApp\src\com\bmaguir\
+* FypApp\src\com\bmaguir\FypApp\
+* FypApp\src\com\bmaguir\FypApp\UnityPlayerActivity.java
+* FypApp\src\com\bmaguir\FypApp\UnityPlayerNativeActivity.java
+* FypApp\src\com\bmaguir\FypApp\UnityPlayerProxyActivity.java
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app\src\main\AndroidManifest.xml
+* assets\ => app\src\main\assets\
+* libs\armeabi-v7a\libmain.so => app\src\main\jniLibs\armeabi-v7a\libmain.so
+* libs\armeabi-v7a\libmono.so => app\src\main\jniLibs\armeabi-v7a\libmono.so
+* libs\armeabi-v7a\libunity.so => app\src\main\jniLibs\armeabi-v7a\libunity.so
+* libs\unity-classes.jar => app\libs\unity-classes.jar
+* libs\x86\libmain.so => app\src\main\jniLibs\x86\libmain.so
+* libs\x86\libmono.so => app\src\main\jniLibs\x86\libmono.so
+* libs\x86\libunity.so => app\src\main\jniLibs\x86\libunity.so
+* res\ => app\src\main\res\
+* src\ => app\src\main\java\
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

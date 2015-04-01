@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context=".SignIn">
+    <item android:id="@+id/menuSignIn"
+        android:title="Sign In"/>
+    <item android:id="@+id/menuSignOut"
+        android:title="Sign Out" />
+    <item android:id="@+id/menuPlay"
+        android:title="New Game" />
+</menu>
