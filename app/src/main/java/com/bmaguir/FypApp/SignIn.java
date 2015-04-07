@@ -103,9 +103,9 @@ public class SignIn extends Activity  implements
     }
 
     public void play(View v){
-        new ServletPostAsyncTask().execute(new Pair<Context, String>(this, "Manfred"));
+        //new ServletPostAsyncTask().execute(new Pair<Context, String>(this, "Manfred"));
         //commented out for debugging backend
-        /*
+        ///*
         if(mGoogleApiClient.isConnected()) {
             Intent intent = new Intent(this, StartActivity.class);
             startActivity(intent);
@@ -217,7 +217,7 @@ public class SignIn extends Activity  implements
         //start game activity
         if(mSignInAutomatically) {
             //commented out for debugging backend!
-            /*
+            ///*
             Intent intent = new Intent(this, StartActivity.class);
             startActivityForResult(intent, START_ACTIVITY_REQUEST);
             //*/

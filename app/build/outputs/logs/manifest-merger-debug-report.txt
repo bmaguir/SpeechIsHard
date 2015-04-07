@@ -67,17 +67,17 @@ uses-permission#android.permission.INTERNET
 ADDED from AndroidManifest.xml:30:5
 	android:name
 		ADDED from AndroidManifest.xml:30:22
-android:uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from AndroidManifest.xml:32:5
 	android:maxSdkVersion
 		ADDED from AndroidManifest.xml:34:9
 	android:name
 		ADDED from AndroidManifest.xml:33:9
-android:uses-permission#android.permission.READ_PHONE_STATE
+uses-permission#android.permission.READ_PHONE_STATE
 ADDED from AndroidManifest.xml:35:5
 	android:name
-		ADDED from AndroidManifest.xml:35:30
-android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
+		ADDED from AndroidManifest.xml:35:22
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from AndroidManifest.xml:36:5
 	android:maxSdkVersion
 		ADDED from AndroidManifest.xml:38:9
@@ -123,12 +123,22 @@ category#android.intent.category.LAUNCHER
 ADDED from AndroidManifest.xml:57:17
 	android:name
 		ADDED from AndroidManifest.xml:57:27
-meta-data#com.google.android.gms.games.APP_ID
-ADDED from AndroidManifest.xml:61:9
-	android:value
-		ADDED from AndroidManifest.xml:63:13
+activity#com.bmaguir.FypApp.finishGameActivity
+ADDED from AndroidManifest.xml:60:9
 	android:name
-		ADDED from AndroidManifest.xml:62:13
+		ADDED from AndroidManifest.xml:60:19
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from AndroidManifest.xml:63:13
+	android:value
+		ADDED from AndroidManifest.xml:65:17
+	android:name
+		ADDED from AndroidManifest.xml:64:17
+meta-data#com.google.android.gms.games.APP_ID
+ADDED from AndroidManifest.xml:68:9
+	android:value
+		ADDED from AndroidManifest.xml:70:13
+	android:name
+		ADDED from AndroidManifest.xml:69:13
 meta-data#com.google.android.gms.version
 ADDED from com.google.android.gms:play-services:6.5.87:21:9
 	android:value

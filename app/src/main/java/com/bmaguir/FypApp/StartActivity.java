@@ -1,5 +1,6 @@
 package com.bmaguir.FypApp;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -12,13 +13,17 @@ import android.speech.RecognitionListener;
 import android.speech.RecognizerIntent;
 import android.speech.SpeechRecognizer;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,6 +65,9 @@ public class StartActivity extends Activity implements
     public static Context context;
     private GoogleApiClient mGoogleApiClient;
     private String mRoomId;
+    private static final int FINISH_GAME_ACTIVITY = 1278;
+    private static final int REQUEST_LEADERBOARD = 1846;
+    private boolean replay = false;
 
     private String mPlayerType;
 
@@ -73,6 +81,8 @@ public class StartActivity extends Activity implements
     private Room mRoom;
     private String mMyId;
 
+    private PopupWindow mPopupWindow;
+
     int xCo, zCo;
 
     @Override
@@ -82,19 +92,7 @@ public class StartActivity extends Activity implements
         getWindow().setFormat(PixelFormat.RGB_565);
         setContentView(R.layout.start_activity);
 
-
-        m_UnityPlayer = new UnityPlayer(this);
-        int glesMode = m_UnityPlayer.getSettings().getInt("gles_mode", 1);
-        boolean trueColor8888 = false;
-        m_UnityPlayer.init(glesMode, trueColor8888);
-
-
-        // Add the Unity view
-        FrameLayout layout = (FrameLayout) findViewById(R.id.frameLayout);
-        FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
-        layout.addView(m_UnityPlayer, 0, lp);
-
-        //m_UnityPlayer.resume();
+        unityInit();
 
         //Speech recognition code
         mSpeechRecognizer = SpeechRecognizer.createSpeechRecognizer(this);
@@ -107,6 +105,22 @@ public class StartActivity extends Activity implements
         mSpeechRecognizer.setRecognitionListener(listener);
 
         mPlayerType = "player2";
+    }
+
+    void unityInit(){
+        if(m_UnityPlayer != null){
+            m_UnityPlayer.quit();
+        }
+        m_UnityPlayer = new UnityPlayer(this);
+        int glesMode = m_UnityPlayer.getSettings().getInt("gles_mode", 1);
+        boolean trueColor8888 = false;
+        m_UnityPlayer.init(glesMode, trueColor8888);
+
+
+        // Add the Unity view
+        FrameLayout layout = (FrameLayout) findViewById(R.id.frameLayout);
+        FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
+        layout.addView(m_UnityPlayer, 0, lp);
     }
 
     // Quit Unity
@@ -153,6 +167,9 @@ public class StartActivity extends Activity implements
                 setMapInfo();
                 mPlayerType = "player1";
                 m_UnityPlayer.resume();
+                return true;
+            case R.id.debug:
+                startFinishGameActivity();
                 return true;
             default:
                 return false;
@@ -255,8 +272,41 @@ public class StartActivity extends Activity implements
                 }
             }
         }
-        m_UnityPlayer.pause();
+        Games.Leaderboards.submitScore(mGoogleApiClient,getString(R.string.LEADERBOARD_ID), 1337);
         Toast.makeText(this, "Level Completed in " + Integer.toString(score) + " seconds", Toast.LENGTH_LONG).show();
+        startFinishGameActivity();
+    }
+
+
+    void startFinishGameActivity(){
+
+        m_UnityPlayer.pause();
+        LayoutInflater inflater = (LayoutInflater)
+                this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mPopupWindow = new PopupWindow(
+                inflater.inflate(R.layout.finish_game_layout, null, false),
+                300,
+                300,
+                true);
+        mPopupWindow.showAtLocation(this.findViewById(R.id.frameLayout), Gravity.CENTER, 0, 0);
+    }
+
+    public void playAgain(View v){
+        Log.d(TAG, "replaying match");
+        mPopupWindow.dismiss();
+        replay = true;
+        unityInit();
+    }
+
+    public void cancel(View v){
+        Log.d(TAG, "replaying match");
+        mPopupWindow.dismiss();
+        unityInit();
+    }
+
+    public void viewLeaderBoard(View v){
+        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
+                getString(R.string.LEADERBOARD_ID)), REQUEST_LEADERBOARD);
     }
 
     @Override
@@ -456,7 +506,7 @@ public class StartActivity extends Activity implements
                 mp.start();
 
                 break;
-            case(4):
+            case(4):    //finished game
                 intBuf = ByteBuffer.wrap(message)
                                 .order(ByteOrder.BIG_ENDIAN)
                                 .asIntBuffer();
@@ -466,6 +516,7 @@ public class StartActivity extends Activity implements
                 int score = temp[0];
                 m_UnityPlayer.pause();
                 Toast.makeText(this, "Level Completed in " + Integer.toString(score) + " seconds", Toast.LENGTH_LONG).show();
+                startFinishGameActivity();
                 break;
         }
     }
@@ -502,7 +553,7 @@ public class StartActivity extends Activity implements
 
     @Override
     public void onConnectedToRoom(Room room) {
-
+        Log.d(TAG, "room disconnected");
     }
 
     @Override
@@ -575,30 +626,42 @@ public class StartActivity extends Activity implements
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == RC_WAITING_ROOM) {
-            if (resultCode == Activity.RESULT_OK) {
-                mRoom = data.getExtras().getParcelable(Multiplayer.EXTRA_ROOM);
-                mMyId = mRoom.getParticipantId(Games.Players.getCurrentPlayerId(mGoogleApiClient));
+        switch (requestCode) {
+            case RC_WAITING_ROOM :
 
-                startGame();
-            }
-            else if (resultCode == Activity.RESULT_CANCELED) {
-                // Waiting room was dismissed with the back button. The meaning of this
-                // action is up to the game. You may choose to leave the room and cancel the
-                // match, or do something else like minimize the waiting room and
-                // continue to connect in the background.
+                if (resultCode == Activity.RESULT_OK) {
+                    mRoom = data.getExtras().getParcelable(Multiplayer.EXTRA_ROOM);
+                    mMyId = mRoom.getParticipantId(Games.Players.getCurrentPlayerId(mGoogleApiClient));
 
-                // in this example, we take the simple approach and just leave the room:
-                Games.RealTimeMultiplayer.leave(mGoogleApiClient, null, mRoomId);
-                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-            }
-            else  {
-                // player wants to leave the room.
-                Games.RealTimeMultiplayer.leave(mGoogleApiClient, null, mRoomId);
-                getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                    startGame();
+                } else if (resultCode == Activity.RESULT_CANCELED) {
+                    // Waiting room was dismissed with the back button. The meaning of this
+                    // action is up to the game. You may choose to leave the room and cancel the
+                    // match, or do something else like minimize the waiting room and
+                    // continue to connect in the background.
+
+                    // in this example, we take the simple approach and just leave the room:
+                    Games.RealTimeMultiplayer.leave(mGoogleApiClient, null, mRoomId);
+                    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                } else {
+                    // player wants to leave the room.
+                    Games.RealTimeMultiplayer.leave(mGoogleApiClient, null, mRoomId);
+                    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                }
+                break;
+
+            case FINISH_GAME_ACTIVITY:
+                if(resultCode == 0){
+                    //restart game
+                    replay = true;
+                }
+                else if(resultCode == 1){
+
+                }
+                break;
             }
         }
-    }
+
 
     private void startGame() {
 

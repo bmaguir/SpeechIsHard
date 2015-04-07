@@ -8,4 +8,6 @@
         android:title="Sign Out" />
     <item android:id="@+id/menuPlay"
         android:title="New Game" />
+    <item android:id="@+id/debug"
+        android:title="Debug" />
 </menu><!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/src/main/res/menu/menu.xml -->

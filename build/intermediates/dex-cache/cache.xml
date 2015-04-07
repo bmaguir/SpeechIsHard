@@ -9,13 +9,6 @@
         <dex dex="C:\Dev\GitHub\SpeechIsHard\app\build\intermediates\pre-dexed\debug\classes-2b8ce56ff75e35008b1cbe0b4decd1c5494bdbc4.jar" />
     </item>
     <item
-        jar="C:\Users\Brian\Downloads\FypApp-master1\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\libs\internal_impl-21.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
-        <dex dex="C:\Users\Brian\Downloads\FypApp-master1\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.0-492865b2da3575642d32287ff00f2e32f6a930f6.jar" />
-    </item>
-    <item
         jar="C:\Dev\GitHub\SpeechIsHard\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\libs\internal_impl-21.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -23,32 +16,11 @@
         <dex dex="C:\Dev\GitHub\SpeechIsHard\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.0-3546aba71ac7610232900296f18c2dbfadfd44ff.jar" />
     </item>
     <item
-        jar="C:\Users\Brian\Downloads\FypApp-master1\app\libs\unity-classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="f92a3c0cf6b563595d7c2c9223a8da4e530eb363">
-        <dex dex="C:\Users\Brian\Downloads\FypApp-master1\app\build\intermediates\pre-dexed\debug\unity-classes-f018b44004b68abd8a56f4715c8be0a42e7912f9.jar" />
-    </item>
-    <item
         jar="C:\Dev\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.0\support-annotations-21.0.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e">
         <dex dex="C:\Users\Brian\Downloads\FypApp-master1\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.0-93508b47ab9aa48a676c07e94f21cf591c83d5d5.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brian\Downloads\FypApp-master1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
-        <dex dex="C:\Users\Brian\Downloads\FypApp-master1\app\build\intermediates\pre-dexed\debug\classes-1c97fe9df486483cb0a1888b588fcdf852040801.jar" />
-    </item>
-    <item
-        jar="C:\Dev\GitHub\SpeechIsHard\app\libs\unity-classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="f92a3c0cf6b563595d7c2c9223a8da4e530eb363">
-        <dex dex="C:\Dev\GitHub\SpeechIsHard\app\build\intermediates\pre-dexed\debug\unity-classes-5e613790a2108267ffb6224bf606c0c07ca3bbf9.jar" />
     </item>
     <item
         jar="C:\Dev\GitHub\SpeechIsHard\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\classes.jar"
@@ -63,6 +35,34 @@
         revision="21.1.2"
         sha1="686344a780033e4ba22b926cd225f8d4941247e6">
         <dex dex="C:\Users\Brian\Downloads\FypApp-master1\app\build\intermediates\pre-dexed\debug\classes-226b49ea9d17976c12fb65c31045a5e0ac3e41f1.jar" />
+    </item>
+    <item
+        jar="C:\Users\Brian\Downloads\FypApp-master1\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\libs\internal_impl-21.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
+        <dex dex="C:\Users\Brian\Downloads\FypApp-master1\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.0-492865b2da3575642d32287ff00f2e32f6a930f6.jar" />
+    </item>
+    <item
+        jar="C:\Users\Brian\Downloads\FypApp-master1\app\libs\unity-classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f92a3c0cf6b563595d7c2c9223a8da4e530eb363">
+        <dex dex="C:\Users\Brian\Downloads\FypApp-master1\app\build\intermediates\pre-dexed\debug\unity-classes-f018b44004b68abd8a56f4715c8be0a42e7912f9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Brian\Downloads\FypApp-master1\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.5.87\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="dd9247ea0fabe8ee479638c4b4a23e93752be256">
+        <dex dex="C:\Users\Brian\Downloads\FypApp-master1\app\build\intermediates\pre-dexed\debug\classes-1c97fe9df486483cb0a1888b588fcdf852040801.jar" />
+    </item>
+    <item
+        jar="C:\Dev\GitHub\SpeechIsHard\app\libs\unity-classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="f92a3c0cf6b563595d7c2c9223a8da4e530eb363">
+        <dex dex="C:\Dev\GitHub\SpeechIsHard\app\build\intermediates\pre-dexed\debug\unity-classes-5e613790a2108267ffb6224bf606c0c07ca3bbf9.jar" />
     </item>
 
 </items>
