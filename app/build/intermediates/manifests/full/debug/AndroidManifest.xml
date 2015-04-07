@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="9"
+        android:minSdkVersion="11"
         android:targetSdkVersion="21" />
 
     <supports-screens
@@ -43,6 +43,9 @@
             android:name="com.bmaguir.FypApp.StartActivity"
             android:label="@string/app_name" >
             <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bmaguir.FypApp.SignIn" />
+            <meta-data
                 android:name="unityplayer.UnityActivity"
                 android:value="true" />
             <meta-data
@@ -55,13 +58,6 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name="com.bmaguir.FypApp.finishGameActivity" >
-            android:parentActivityName="com.example.myfirstapp.MainActivity" >
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.bmaguir.FypApp.StartActivity" />
         </activity>
 
         <meta-data

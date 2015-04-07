@@ -28,10 +28,23 @@
     <color name="wallet_holo_blue_light">#ff33b5e5</color>
     <color name="wallet_link_text_light">#0000ee</color>
     <declare-styleable name="AdsAttrs"><attr format="string" name="adSize"/><attr format="string" name="adSizes"/><attr format="string" name="adUnitId"/></declare-styleable>
+    <declare-styleable name="CustomTheme"><attr format="reference" name="showcaseViewStyle"/></declare-styleable>
     <declare-styleable name="LoadingImageView"><attr format="enum" name="imageAspectRatioAdjust"><enum name="none" value="0"/><enum name="adjust_width" value="1"/><enum name="adjust_height" value="2"/></attr><attr format="float" name="imageAspectRatio"/><attr format="boolean" name="circleCrop"/></declare-styleable>
     <declare-styleable name="MapAttrs"><attr format="enum" name="mapType"><enum name="none" value="0"/><enum name="normal" value="1"/><enum name="satellite" value="2"/><enum name="terrain" value="3"/><enum name="hybrid" value="4"/></attr><attr format="float" name="cameraBearing"/><attr format="float" name="cameraTargetLat"/><attr format="float" name="cameraTargetLng"/><attr format="float" name="cameraTilt"/><attr format="float" name="cameraZoom"/><attr format="boolean" name="liteMode"/><attr format="boolean" name="uiCompass"/><attr format="boolean" name="uiRotateGestures"/><attr format="boolean" name="uiScrollGestures"/><attr format="boolean" name="uiTiltGestures"/><attr format="boolean" name="uiZoomControls"/><attr format="boolean" name="uiZoomGestures"/><attr format="boolean" name="useViewLifecycle"/><attr format="boolean" name="zOrderOnTop"/><attr format="boolean" name="uiMapToolbar"/></declare-styleable>
+    <declare-styleable name="ShowcaseView"><attr format="color|reference" name="sv_backgroundColor"/><attr format="color|reference" name="sv_detailTextColor"/><attr format="color|reference" name="sv_titleTextColor"/><attr format="color|reference" name="sv_buttonBackgroundColor"/><attr format="color|reference" name="sv_buttonForegroundColor"/><attr format="string|reference" name="sv_buttonText"/><attr format="reference" name="sv_detailTextAppearance"/><attr format="reference" name="sv_titleTextAppearance"/><attr format="color|reference" name="sv_showcaseColor"/><attr format="boolean|reference" name="sv_tintButtonColor"/></declare-styleable>
     <declare-styleable name="WalletFragmentOptions"><attr format="enum" name="appTheme"><enum name="holo_dark" value="0"/><enum name="holo_light" value="1"/></attr><attr format="enum" name="environment"><enum name="production" value="1"/><enum name="sandbox" value="0"/><enum name="strict_sandbox" value="2"/></attr><attr format="reference" name="fragmentStyle"/><attr format="enum" name="fragmentMode"><enum name="buyButton" value="1"/><enum name="selectionDetails" value="2"/></attr></declare-styleable>
     <declare-styleable name="WalletFragmentStyle"><attr format="dimension" name="buyButtonHeight"><enum name="match_parent" value="-1"/><enum name="wrap_content" value="-2"/></attr><attr format="dimension" name="buyButtonWidth"><enum name="match_parent" value="-1"/><enum name="wrap_content" value="-2"/></attr><attr format="enum" name="buyButtonText"><enum name="buy_with_google" value="1"/><enum name="buy_now" value="2"/><enum name="book_now" value="3"/><enum name="donate_with_google" value="4"/></attr><attr format="enum" name="buyButtonAppearance"><enum name="classic" value="1"/><enum name="grayscale" value="2"/><enum name="monochrome" value="3"/></attr><attr format="reference" name="maskedWalletDetailsTextAppearance"/><attr format="reference" name="maskedWalletDetailsHeaderTextAppearance"/><attr format="reference|color" name="maskedWalletDetailsBackground"/><attr format="reference" name="maskedWalletDetailsButtonTextAppearance"/><attr format="reference|color" name="maskedWalletDetailsButtonBackground"/><attr format="color" name="maskedWalletDetailsLogoTextColor"/><attr format="enum" name="maskedWalletDetailsLogoImageType"><enum name="classic" value="1"/><enum name="monochrome" value="2"/></attr></declare-styleable>
+    <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/values/values.xml -->
+    <eat-comment/>
+    <dimen name="action_bar_offset">66dp</dimen>
+    <dimen name="button_margin">12dp</dimen>
+    <dimen name="showcase_radius">94dp</dimen>
+    <dimen name="showcase_radius_inner">96dp</dimen>
+    <dimen name="showcase_radius_outer">128dp</dimen>
+    <dimen name="text_padding">24dp</dimen>
+    <item name="showcase_button" type="id"/>
+    <item name="showcase_sub_text" type="id"/>
+    <item name="showcase_title_text" type="id"/>
     <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/version.xml -->
     <eat-comment/>
     <integer name="google_play_services_version">6587000</integer>
@@ -80,11 +93,53 @@
     <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
     <string name="create_calendar_title">Create calendar event</string>
     <string name="decline">Decline</string>
+    <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/values/values.xml -->
+    <eat-comment/>
+    <string name="ok">OK</string>
+    <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/admob_strings.xml -->
+    <eat-comment/>
     <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>
     <string name="store_picture_title">Save image</string>
     <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/wallet_strings.xml -->
     <eat-comment/>
     <string name="wallet_buy_button_place_holder" translation_description="Text on a button that allows a user to make a payment with Google Wallet [CHAR LIMIT=30]">Buy with Google</string>
+    <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/values/values.xml -->
+    <eat-comment/>
+    <style name="ShowcaseButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">96dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:background">@drawable/button</item>
+    </style>
+    <style name="ShowcaseView">
+        <item name="sv_titleTextAppearance">@style/TextAppearance.ShowcaseView.Title</item>
+        <item name="sv_detailTextAppearance">@style/TextAppearance.ShowcaseView.Detail</item>
+        <item name="sv_backgroundColor">#3333B5E5</item>
+        <item name="sv_buttonText">@string/ok</item>
+    </style>
+    <style name="ShowcaseView.Light">
+        <item name="sv_titleTextAppearance">@style/TextAppearance.ShowcaseView.Title</item>
+        <item name="sv_detailTextAppearance">@style/TextAppearance.ShowcaseView.Detail.Light</item>
+        <item name="sv_backgroundColor">#3333B5E5</item>
+        <item name="sv_buttonText">@string/ok</item>
+    </style>
+    <style name="TextAppearance.ShowcaseView.Detail" parent="android:style/TextAppearance">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    <style name="TextAppearance.ShowcaseView.Detail.Light">
+        <item name="android:textColor">#333333</item>
+        <item name="android:shadowColor">#FF0000</item>
+        <item name="android:shadowRadius">0</item>
+    </style>
+    <style name="TextAppearance.ShowcaseView.Title" parent="android:style/TextAppearance.Large">
+        <item name="android:textColor">#33B5E5</item>
+    </style>
+    <style name="TextAppearance.ShowcaseView.Title.Light">
+        <item name="android:shadowRadius">0</item>
+    </style>
     <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/admob_iap_style.xml -->
     <eat-comment/>
     <style name="Theme.IAPTheme" parent="android:Theme">

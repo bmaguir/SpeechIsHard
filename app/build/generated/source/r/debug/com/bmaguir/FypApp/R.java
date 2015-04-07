@@ -43,7 +43,7 @@ containing a value of this type.
 <tr><td><code>holo_light</code></td><td>1</td><td></td></tr>
 </table>
          */
-        public static final int appTheme=0x7f010016;
+        public static final int appTheme=0x7f010021;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -55,7 +55,7 @@ containing a value of this type.
 <tr><td><code>monochrome</code></td><td>3</td><td></td></tr>
 </table>
          */
-        public static final int buyButtonAppearance=0x7f01001d;
+        public static final int buyButtonAppearance=0x7f010028;
         /** <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -74,7 +74,7 @@ containing a value of this type.
 <tr><td><code>wrap_content</code></td><td>-2</td><td></td></tr>
 </table>
          */
-        public static final int buyButtonHeight=0x7f01001a;
+        public static final int buyButtonHeight=0x7f010025;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -87,7 +87,7 @@ containing a value of this type.
 <tr><td><code>donate_with_google</code></td><td>4</td><td></td></tr>
 </table>
          */
-        public static final int buyButtonText=0x7f01001c;
+        public static final int buyButtonText=0x7f010027;
         /** <p>May be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -106,7 +106,7 @@ containing a value of this type.
 <tr><td><code>wrap_content</code></td><td>-2</td><td></td></tr>
 </table>
          */
-        public static final int buyButtonWidth=0x7f01001b;
+        public static final int buyButtonWidth=0x7f010026;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -114,7 +114,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraBearing=0x7f010007;
+        public static final int cameraBearing=0x7f010008;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -122,7 +122,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraTargetLat=0x7f010008;
+        public static final int cameraTargetLat=0x7f010009;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -130,7 +130,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraTargetLng=0x7f010009;
+        public static final int cameraTargetLng=0x7f01000a;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -138,7 +138,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraTilt=0x7f01000a;
+        public static final int cameraTilt=0x7f01000b;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -146,7 +146,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraZoom=0x7f01000b;
+        public static final int cameraZoom=0x7f01000c;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -154,7 +154,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int circleCrop=0x7f010005;
+        public static final int circleCrop=0x7f010006;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -166,7 +166,7 @@ containing a value of this type.
 <tr><td><code>strict_sandbox</code></td><td>2</td><td></td></tr>
 </table>
          */
-        public static final int environment=0x7f010017;
+        public static final int environment=0x7f010022;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -177,11 +177,11 @@ containing a value of this type.
 <tr><td><code>selectionDetails</code></td><td>2</td><td></td></tr>
 </table>
          */
-        public static final int fragmentMode=0x7f010019;
+        public static final int fragmentMode=0x7f010024;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int fragmentStyle=0x7f010018;
+        public static final int fragmentStyle=0x7f010023;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -189,7 +189,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int imageAspectRatio=0x7f010004;
+        public static final int imageAspectRatio=0x7f010005;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -201,7 +201,7 @@ containing a value of this type.
 <tr><td><code>adjust_height</code></td><td>2</td><td></td></tr>
 </table>
          */
-        public static final int imageAspectRatioAdjust=0x7f010003;
+        public static final int imageAspectRatioAdjust=0x7f010004;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -209,7 +209,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int liteMode=0x7f01000c;
+        public static final int liteMode=0x7f01000d;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -223,27 +223,27 @@ containing a value of this type.
 <tr><td><code>hybrid</code></td><td>4</td><td></td></tr>
 </table>
          */
-        public static final int mapType=0x7f010006;
+        public static final int mapType=0x7f010007;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int maskedWalletDetailsBackground=0x7f010020;
+        public static final int maskedWalletDetailsBackground=0x7f01002b;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int maskedWalletDetailsButtonBackground=0x7f010022;
+        public static final int maskedWalletDetailsButtonBackground=0x7f01002d;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int maskedWalletDetailsButtonTextAppearance=0x7f010021;
+        public static final int maskedWalletDetailsButtonTextAppearance=0x7f01002c;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int maskedWalletDetailsHeaderTextAppearance=0x7f01001f;
+        public static final int maskedWalletDetailsHeaderTextAppearance=0x7f01002a;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -254,7 +254,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>monochrome</code></td><td>2</td><td></td></tr>
 </table>
          */
-        public static final int maskedWalletDetailsLogoImageType=0x7f010024;
+        public static final int maskedWalletDetailsLogoImageType=0x7f01002f;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -263,11 +263,69 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int maskedWalletDetailsLogoTextColor=0x7f010023;
+        public static final int maskedWalletDetailsLogoTextColor=0x7f01002e;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int maskedWalletDetailsTextAppearance=0x7f01001e;
+        public static final int maskedWalletDetailsTextAppearance=0x7f010029;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int showcaseViewStyle=0x7f010003;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int sv_backgroundColor=0x7f010017;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int sv_buttonBackgroundColor=0x7f01001a;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int sv_buttonForegroundColor=0x7f01001b;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+         */
+        public static final int sv_buttonText=0x7f01001c;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int sv_detailTextAppearance=0x7f01001d;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int sv_detailTextColor=0x7f010018;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int sv_showcaseColor=0x7f01001f;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+         */
+        public static final int sv_tintButtonColor=0x7f010020;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int sv_titleTextAppearance=0x7f01001e;
+        /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+         */
+        public static final int sv_titleTextColor=0x7f010019;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -275,7 +333,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiCompass=0x7f01000d;
+        public static final int uiCompass=0x7f01000e;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -283,7 +341,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiMapToolbar=0x7f010015;
+        public static final int uiMapToolbar=0x7f010016;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -291,7 +349,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiRotateGestures=0x7f01000e;
+        public static final int uiRotateGestures=0x7f01000f;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -299,7 +357,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiScrollGestures=0x7f01000f;
+        public static final int uiScrollGestures=0x7f010010;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -307,7 +365,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiTiltGestures=0x7f010010;
+        public static final int uiTiltGestures=0x7f010011;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -315,7 +373,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiZoomControls=0x7f010011;
+        public static final int uiZoomControls=0x7f010012;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -323,7 +381,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiZoomGestures=0x7f010012;
+        public static final int uiZoomGestures=0x7f010013;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -331,7 +389,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int useViewLifecycle=0x7f010013;
+        public static final int useViewLifecycle=0x7f010014;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -339,7 +397,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int zOrderOnTop=0x7f010014;
+        public static final int zOrderOnTop=0x7f010015;
     }
     public static final class color {
         public static final int common_action_bar_splitter=0x7f050000;
@@ -370,142 +428,171 @@ containing a value of this type.
         public static final int wallet_primary_text_holo_light=0x7f050019;
         public static final int wallet_secondary_text_holo_dark=0x7f05001a;
     }
+    public static final class dimen {
+        public static final int action_bar_offset=0x7f060000;
+        public static final int button_margin=0x7f060001;
+        public static final int showcase_radius=0x7f060002;
+        public static final int showcase_radius_inner=0x7f060003;
+        public static final int showcase_radius_outer=0x7f060004;
+        public static final int text_padding=0x7f060005;
+    }
     public static final class drawable {
         public static final int app_icon=0x7f020000;
-        public static final int common_full_open_on_phone=0x7f020001;
-        public static final int common_ic_googleplayservices=0x7f020002;
-        public static final int common_signin_btn_icon_dark=0x7f020003;
-        public static final int common_signin_btn_icon_disabled_dark=0x7f020004;
-        public static final int common_signin_btn_icon_disabled_focus_dark=0x7f020005;
-        public static final int common_signin_btn_icon_disabled_focus_light=0x7f020006;
-        public static final int common_signin_btn_icon_disabled_light=0x7f020007;
-        public static final int common_signin_btn_icon_focus_dark=0x7f020008;
-        public static final int common_signin_btn_icon_focus_light=0x7f020009;
-        public static final int common_signin_btn_icon_light=0x7f02000a;
-        public static final int common_signin_btn_icon_normal_dark=0x7f02000b;
-        public static final int common_signin_btn_icon_normal_light=0x7f02000c;
-        public static final int common_signin_btn_icon_pressed_dark=0x7f02000d;
-        public static final int common_signin_btn_icon_pressed_light=0x7f02000e;
-        public static final int common_signin_btn_text_dark=0x7f02000f;
-        public static final int common_signin_btn_text_disabled_dark=0x7f020010;
-        public static final int common_signin_btn_text_disabled_focus_dark=0x7f020011;
-        public static final int common_signin_btn_text_disabled_focus_light=0x7f020012;
-        public static final int common_signin_btn_text_disabled_light=0x7f020013;
-        public static final int common_signin_btn_text_focus_dark=0x7f020014;
-        public static final int common_signin_btn_text_focus_light=0x7f020015;
-        public static final int common_signin_btn_text_light=0x7f020016;
-        public static final int common_signin_btn_text_normal_dark=0x7f020017;
-        public static final int common_signin_btn_text_normal_light=0x7f020018;
-        public static final int common_signin_btn_text_pressed_dark=0x7f020019;
-        public static final int common_signin_btn_text_pressed_light=0x7f02001a;
-        public static final int ic_plusone_medium_off_client=0x7f02001b;
-        public static final int ic_plusone_small_off_client=0x7f02001c;
-        public static final int ic_plusone_standard_off_client=0x7f02001d;
-        public static final int ic_plusone_tall_off_client=0x7f02001e;
-        public static final int powered_by_google_dark=0x7f02001f;
-        public static final int powered_by_google_light=0x7f020020;
-        public static final int speechishard_small=0x7f020021;
+        public static final int btn_cling_normal=0x7f020001;
+        public static final int btn_cling_pressed=0x7f020002;
+        public static final int button=0x7f020003;
+        public static final int button_normal=0x7f020004;
+        public static final int cling=0x7f020005;
+        public static final int cling_bleached=0x7f020006;
+        public static final int cling_button_bg=0x7f020007;
+        public static final int common_full_open_on_phone=0x7f020008;
+        public static final int common_ic_googleplayservices=0x7f020009;
+        public static final int common_signin_btn_icon_dark=0x7f02000a;
+        public static final int common_signin_btn_icon_disabled_dark=0x7f02000b;
+        public static final int common_signin_btn_icon_disabled_focus_dark=0x7f02000c;
+        public static final int common_signin_btn_icon_disabled_focus_light=0x7f02000d;
+        public static final int common_signin_btn_icon_disabled_light=0x7f02000e;
+        public static final int common_signin_btn_icon_focus_dark=0x7f02000f;
+        public static final int common_signin_btn_icon_focus_light=0x7f020010;
+        public static final int common_signin_btn_icon_light=0x7f020011;
+        public static final int common_signin_btn_icon_normal_dark=0x7f020012;
+        public static final int common_signin_btn_icon_normal_light=0x7f020013;
+        public static final int common_signin_btn_icon_pressed_dark=0x7f020014;
+        public static final int common_signin_btn_icon_pressed_light=0x7f020015;
+        public static final int common_signin_btn_text_dark=0x7f020016;
+        public static final int common_signin_btn_text_disabled_dark=0x7f020017;
+        public static final int common_signin_btn_text_disabled_focus_dark=0x7f020018;
+        public static final int common_signin_btn_text_disabled_focus_light=0x7f020019;
+        public static final int common_signin_btn_text_disabled_light=0x7f02001a;
+        public static final int common_signin_btn_text_focus_dark=0x7f02001b;
+        public static final int common_signin_btn_text_focus_light=0x7f02001c;
+        public static final int common_signin_btn_text_light=0x7f02001d;
+        public static final int common_signin_btn_text_normal_dark=0x7f02001e;
+        public static final int common_signin_btn_text_normal_light=0x7f02001f;
+        public static final int common_signin_btn_text_pressed_dark=0x7f020020;
+        public static final int common_signin_btn_text_pressed_light=0x7f020021;
+        public static final int hand=0x7f020022;
+        public static final int ic_plusone_medium_off_client=0x7f020023;
+        public static final int ic_plusone_small_off_client=0x7f020024;
+        public static final int ic_plusone_standard_off_client=0x7f020025;
+        public static final int ic_plusone_tall_off_client=0x7f020026;
+        public static final int powered_by_google_dark=0x7f020027;
+        public static final int powered_by_google_light=0x7f020028;
+        public static final int speechishard_small=0x7f020029;
     }
     public static final class id {
-        public static final int adjust_height=0x7f0a0000;
-        public static final int adjust_width=0x7f0a0001;
-        public static final int book_now=0x7f0a0010;
-        public static final int button2=0x7f0a001c;
-        public static final int button3=0x7f0a001a;
-        public static final int buyButton=0x7f0a000c;
-        public static final int buy_now=0x7f0a0011;
-        public static final int buy_with_google=0x7f0a0012;
-        public static final int classic=0x7f0a0014;
-        public static final int debug=0x7f0a0024;
-        public static final int donate_with_google=0x7f0a0013;
-        public static final int frameLayout=0x7f0a001e;
-        public static final int grayscale=0x7f0a0015;
-        public static final int holo_dark=0x7f0a0007;
-        public static final int holo_light=0x7f0a0008;
-        public static final int hybrid=0x7f0a0003;
-        public static final int match_parent=0x7f0a000e;
-        public static final int menuPlay=0x7f0a0023;
-        public static final int menuSignIn=0x7f0a0021;
-        public static final int menuSignOut=0x7f0a0022;
-        public static final int monochrome=0x7f0a0016;
-        public static final int none=0x7f0a0002;
-        public static final int normal=0x7f0a0004;
-        public static final int play=0x7f0a001d;
-        public static final int playAgain=0x7f0a0019;
-        public static final int production=0x7f0a0009;
-        public static final int sandbox=0x7f0a000a;
-        public static final int satellite=0x7f0a0005;
-        public static final int selectionDetails=0x7f0a000d;
-        public static final int signIn=0x7f0a001b;
-        public static final int speak=0x7f0a001f;
-        public static final int strict_sandbox=0x7f0a000b;
-        public static final int terrain=0x7f0a0006;
-        public static final int textView=0x7f0a0020;
-        public static final int textView2=0x7f0a0017;
-        public static final int textView3=0x7f0a0018;
-        public static final int wrap_content=0x7f0a000f;
+        public static final int adjust_height=0x7f070003;
+        public static final int adjust_width=0x7f070004;
+        public static final int book_now=0x7f070013;
+        public static final int button2=0x7f07001f;
+        public static final int button3=0x7f07001d;
+        public static final int buyButton=0x7f07000f;
+        public static final int buy_now=0x7f070014;
+        public static final int buy_with_google=0x7f070015;
+        public static final int classic=0x7f070017;
+        public static final int debug=0x7f070027;
+        public static final int donate_with_google=0x7f070016;
+        public static final int frameLayout=0x7f070021;
+        public static final int grayscale=0x7f070018;
+        public static final int holo_dark=0x7f07000a;
+        public static final int holo_light=0x7f07000b;
+        public static final int hybrid=0x7f070006;
+        public static final int match_parent=0x7f070011;
+        public static final int menuPlay=0x7f070026;
+        public static final int menuSignIn=0x7f070024;
+        public static final int menuSignOut=0x7f070025;
+        public static final int monochrome=0x7f070019;
+        public static final int none=0x7f070005;
+        public static final int normal=0x7f070007;
+        public static final int play=0x7f070020;
+        public static final int playAgain=0x7f07001c;
+        public static final int production=0x7f07000c;
+        public static final int sandbox=0x7f07000d;
+        public static final int satellite=0x7f070008;
+        public static final int selectionDetails=0x7f070010;
+        public static final int showcase_button=0x7f070000;
+        public static final int showcase_sub_text=0x7f070001;
+        public static final int showcase_title_text=0x7f070002;
+        public static final int signIn=0x7f07001e;
+        public static final int speak=0x7f070022;
+        public static final int strict_sandbox=0x7f07000e;
+        public static final int terrain=0x7f070009;
+        public static final int textView=0x7f070023;
+        public static final int textView2=0x7f07001a;
+        public static final int textView3=0x7f07001b;
+        public static final int wrap_content=0x7f070012;
     }
     public static final class integer {
-        public static final int google_play_services_version=0x7f060000;
+        public static final int google_play_services_version=0x7f080000;
     }
     public static final class layout {
         public static final int finish_game_layout=0x7f030000;
-        public static final int sign_in=0x7f030001;
-        public static final int start_activity=0x7f030002;
+        public static final int handy=0x7f030001;
+        public static final int showcase_button=0x7f030002;
+        public static final int sign_in=0x7f030003;
+        public static final int start_activity=0x7f030004;
     }
     public static final class menu {
-        public static final int menu=0x7f090000;
+        public static final int menu=0x7f0b0000;
     }
     public static final class raw {
         public static final int blop=0x7f040000;
         public static final int gtm_analytics=0x7f040001;
     }
     public static final class string {
-        public static final int LEADERBOARD_ID=0x7f070000;
-        public static final int accept=0x7f070001;
-        public static final int app_id=0x7f070002;
-        public static final int app_name=0x7f070003;
-        public static final int common_android_wear_notification_needs_update_text=0x7f070004;
-        public static final int common_android_wear_update_text=0x7f070005;
-        public static final int common_android_wear_update_title=0x7f070006;
-        public static final int common_google_play_services_enable_button=0x7f070007;
-        public static final int common_google_play_services_enable_text=0x7f070008;
-        public static final int common_google_play_services_enable_title=0x7f070009;
-        public static final int common_google_play_services_error_notification_requested_by_msg=0x7f07000a;
-        public static final int common_google_play_services_install_button=0x7f07000b;
-        public static final int common_google_play_services_install_text_phone=0x7f07000c;
-        public static final int common_google_play_services_install_text_tablet=0x7f07000d;
-        public static final int common_google_play_services_install_title=0x7f07000e;
-        public static final int common_google_play_services_invalid_account_text=0x7f07000f;
-        public static final int common_google_play_services_invalid_account_title=0x7f070010;
-        public static final int common_google_play_services_needs_enabling_title=0x7f070011;
-        public static final int common_google_play_services_network_error_text=0x7f070012;
-        public static final int common_google_play_services_network_error_title=0x7f070013;
-        public static final int common_google_play_services_notification_needs_installation_title=0x7f070014;
-        public static final int common_google_play_services_notification_needs_update_title=0x7f070015;
-        public static final int common_google_play_services_notification_ticker=0x7f070016;
-        public static final int common_google_play_services_unknown_issue=0x7f070017;
-        public static final int common_google_play_services_unsupported_text=0x7f070018;
-        public static final int common_google_play_services_unsupported_title=0x7f070019;
-        public static final int common_google_play_services_update_button=0x7f07001a;
-        public static final int common_google_play_services_update_text=0x7f07001b;
-        public static final int common_google_play_services_update_title=0x7f07001c;
-        public static final int common_open_on_phone=0x7f07001d;
-        public static final int common_signin_button_text=0x7f07001e;
-        public static final int common_signin_button_text_long=0x7f07001f;
-        public static final int create_calendar_message=0x7f070020;
-        public static final int create_calendar_title=0x7f070021;
-        public static final int decline=0x7f070022;
-        public static final int store_picture_message=0x7f070023;
-        public static final int store_picture_title=0x7f070024;
-        public static final int wallet_buy_button_place_holder=0x7f070025;
+        public static final int LEADERBOARD_ID=0x7f090000;
+        public static final int accept=0x7f090001;
+        public static final int app_id=0x7f090002;
+        public static final int app_name=0x7f090003;
+        public static final int common_android_wear_notification_needs_update_text=0x7f090004;
+        public static final int common_android_wear_update_text=0x7f090005;
+        public static final int common_android_wear_update_title=0x7f090006;
+        public static final int common_google_play_services_enable_button=0x7f090007;
+        public static final int common_google_play_services_enable_text=0x7f090008;
+        public static final int common_google_play_services_enable_title=0x7f090009;
+        public static final int common_google_play_services_error_notification_requested_by_msg=0x7f09000a;
+        public static final int common_google_play_services_install_button=0x7f09000b;
+        public static final int common_google_play_services_install_text_phone=0x7f09000c;
+        public static final int common_google_play_services_install_text_tablet=0x7f09000d;
+        public static final int common_google_play_services_install_title=0x7f09000e;
+        public static final int common_google_play_services_invalid_account_text=0x7f09000f;
+        public static final int common_google_play_services_invalid_account_title=0x7f090010;
+        public static final int common_google_play_services_needs_enabling_title=0x7f090011;
+        public static final int common_google_play_services_network_error_text=0x7f090012;
+        public static final int common_google_play_services_network_error_title=0x7f090013;
+        public static final int common_google_play_services_notification_needs_installation_title=0x7f090014;
+        public static final int common_google_play_services_notification_needs_update_title=0x7f090015;
+        public static final int common_google_play_services_notification_ticker=0x7f090016;
+        public static final int common_google_play_services_unknown_issue=0x7f090017;
+        public static final int common_google_play_services_unsupported_text=0x7f090018;
+        public static final int common_google_play_services_unsupported_title=0x7f090019;
+        public static final int common_google_play_services_update_button=0x7f09001a;
+        public static final int common_google_play_services_update_text=0x7f09001b;
+        public static final int common_google_play_services_update_title=0x7f09001c;
+        public static final int common_open_on_phone=0x7f09001d;
+        public static final int common_signin_button_text=0x7f09001e;
+        public static final int common_signin_button_text_long=0x7f09001f;
+        public static final int create_calendar_message=0x7f090020;
+        public static final int create_calendar_title=0x7f090021;
+        public static final int decline=0x7f090022;
+        public static final int ok=0x7f090023;
+        public static final int store_picture_message=0x7f090024;
+        public static final int store_picture_title=0x7f090025;
+        public static final int wallet_buy_button_place_holder=0x7f090026;
     }
     public static final class style {
-        public static final int Theme_IAPTheme=0x7f080000;
-        public static final int WalletFragmentDefaultButtonTextAppearance=0x7f080001;
-        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f080002;
-        public static final int WalletFragmentDefaultDetailsTextAppearance=0x7f080003;
-        public static final int WalletFragmentDefaultStyle=0x7f080004;
+        public static final int ShowcaseButton=0x7f0a0000;
+        public static final int ShowcaseView=0x7f0a0001;
+        public static final int ShowcaseView_Light=0x7f0a0002;
+        public static final int TextAppearance_ShowcaseView_Detail=0x7f0a0003;
+        public static final int TextAppearance_ShowcaseView_Detail_Light=0x7f0a0004;
+        public static final int TextAppearance_ShowcaseView_Title=0x7f0a0005;
+        public static final int TextAppearance_ShowcaseView_Title_Light=0x7f0a0006;
+        public static final int Theme_IAPTheme=0x7f0a0007;
+        public static final int WalletFragmentDefaultButtonTextAppearance=0x7f0a0008;
+        public static final int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f0a0009;
+        public static final int WalletFragmentDefaultDetailsTextAppearance=0x7f0a000a;
+        public static final int WalletFragmentDefaultStyle=0x7f0a000b;
     }
     public static final class styleable {
         /** Attributes that can be used with a AdsAttrs.
@@ -567,6 +654,29 @@ containing a value of this type.
           @attr name com.bmaguir.FypApp:adUnitId
         */
         public static final int AdsAttrs_adUnitId = 2;
+        /** Attributes that can be used with a CustomTheme.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #CustomTheme_showcaseViewStyle com.bmaguir.FypApp:showcaseViewStyle}</code></td><td></td></tr>
+           </table>
+           @see #CustomTheme_showcaseViewStyle
+         */
+        public static final int[] CustomTheme = {
+            0x7f010003
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.bmaguir.FypApp.R.attr#showcaseViewStyle}
+          attribute's value can be found in the {@link #CustomTheme} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.bmaguir.FypApp:showcaseViewStyle
+        */
+        public static final int CustomTheme_showcaseViewStyle = 0;
         /** Attributes that can be used with a LoadingImageView.
            <p>Includes the following attributes:</p>
            <table>
@@ -582,7 +692,7 @@ containing a value of this type.
            @see #LoadingImageView_imageAspectRatioAdjust
          */
         public static final int[] LoadingImageView = {
-            0x7f010003, 0x7f010004, 0x7f010005
+            0x7f010004, 0x7f010005, 0x7f010006
         };
         /**
           <p>This symbol is the offset where the {@link com.bmaguir.FypApp.R.attr#circleCrop}
@@ -671,10 +781,10 @@ containing a value of this type.
            @see #MapAttrs_zOrderOnTop
          */
         public static final int[] MapAttrs = {
-            0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009,
-            0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d,
-            0x7f01000e, 0x7f01000f, 0x7f010010, 0x7f010011,
-            0x7f010012, 0x7f010013, 0x7f010014, 0x7f010015
+            0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a,
+            0x7f01000b, 0x7f01000c, 0x7f01000d, 0x7f01000e,
+            0x7f01000f, 0x7f010010, 0x7f010011, 0x7f010012,
+            0x7f010013, 0x7f010014, 0x7f010015, 0x7f010016
         };
         /**
           <p>This symbol is the offset where the {@link com.bmaguir.FypApp.R.attr#cameraBearing}
@@ -906,6 +1016,153 @@ containing a value of this type.
           @attr name com.bmaguir.FypApp:zOrderOnTop
         */
         public static final int MapAttrs_zOrderOnTop = 14;
+        /** Attributes that can be used with a ShowcaseView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ShowcaseView_sv_backgroundColor com.bmaguir.FypApp:sv_backgroundColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #ShowcaseView_sv_buttonBackgroundColor com.bmaguir.FypApp:sv_buttonBackgroundColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #ShowcaseView_sv_buttonForegroundColor com.bmaguir.FypApp:sv_buttonForegroundColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #ShowcaseView_sv_buttonText com.bmaguir.FypApp:sv_buttonText}</code></td><td></td></tr>
+           <tr><td><code>{@link #ShowcaseView_sv_detailTextAppearance com.bmaguir.FypApp:sv_detailTextAppearance}</code></td><td></td></tr>
+           <tr><td><code>{@link #ShowcaseView_sv_detailTextColor com.bmaguir.FypApp:sv_detailTextColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #ShowcaseView_sv_showcaseColor com.bmaguir.FypApp:sv_showcaseColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #ShowcaseView_sv_tintButtonColor com.bmaguir.FypApp:sv_tintButtonColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #ShowcaseView_sv_titleTextAppearance com.bmaguir.FypApp:sv_titleTextAppearance}</code></td><td></td></tr>
+           <tr><td><code>{@link #ShowcaseView_sv_titleTextColor com.bmaguir.FypApp:sv_titleTextColor}</code></td><td></td></tr>
+           </table>
+           @see #ShowcaseView_sv_backgroundColor
+           @see #ShowcaseView_sv_buttonBackgroundColor
+           @see #ShowcaseView_sv_buttonForegroundColor
+           @see #ShowcaseView_sv_buttonText
+           @see #ShowcaseView_sv_detailTextAppearance
+           @see #ShowcaseView_sv_detailTextColor
+           @see #ShowcaseView_sv_showcaseColor
+           @see #ShowcaseView_sv_tintButtonColor
+           @see #ShowcaseView_sv_titleTextAppearance
+           @see #ShowcaseView_sv_titleTextColor
+         */
+        public static final int[] ShowcaseView = {
+            0x7f010017, 0x7f010018, 0x7f010019, 0x7f01001a,
+            0x7f01001b, 0x7f01001c, 0x7f01001d, 0x7f01001e,
+            0x7f01001f, 0x7f010020
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.bmaguir.FypApp.R.attr#sv_backgroundColor}
+          attribute's value can be found in the {@link #ShowcaseView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          @attr name com.bmaguir.FypApp:sv_backgroundColor
+        */
+        public static final int ShowcaseView_sv_backgroundColor = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.bmaguir.FypApp.R.attr#sv_buttonBackgroundColor}
+          attribute's value can be found in the {@link #ShowcaseView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          @attr name com.bmaguir.FypApp:sv_buttonBackgroundColor
+        */
+        public static final int ShowcaseView_sv_buttonBackgroundColor = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.bmaguir.FypApp.R.attr#sv_buttonForegroundColor}
+          attribute's value can be found in the {@link #ShowcaseView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          @attr name com.bmaguir.FypApp:sv_buttonForegroundColor
+        */
+        public static final int ShowcaseView_sv_buttonForegroundColor = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.bmaguir.FypApp.R.attr#sv_buttonText}
+          attribute's value can be found in the {@link #ShowcaseView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+          @attr name com.bmaguir.FypApp:sv_buttonText
+        */
+        public static final int ShowcaseView_sv_buttonText = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.bmaguir.FypApp.R.attr#sv_detailTextAppearance}
+          attribute's value can be found in the {@link #ShowcaseView} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.bmaguir.FypApp:sv_detailTextAppearance
+        */
+        public static final int ShowcaseView_sv_detailTextAppearance = 6;
+        /**
+          <p>This symbol is the offset where the {@link com.bmaguir.FypApp.R.attr#sv_detailTextColor}
+          attribute's value can be found in the {@link #ShowcaseView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          @attr name com.bmaguir.FypApp:sv_detailTextColor
+        */
+        public static final int ShowcaseView_sv_detailTextColor = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.bmaguir.FypApp.R.attr#sv_showcaseColor}
+          attribute's value can be found in the {@link #ShowcaseView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          @attr name com.bmaguir.FypApp:sv_showcaseColor
+        */
+        public static final int ShowcaseView_sv_showcaseColor = 8;
+        /**
+          <p>This symbol is the offset where the {@link com.bmaguir.FypApp.R.attr#sv_tintButtonColor}
+          attribute's value can be found in the {@link #ShowcaseView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
+          @attr name com.bmaguir.FypApp:sv_tintButtonColor
+        */
+        public static final int ShowcaseView_sv_tintButtonColor = 9;
+        /**
+          <p>This symbol is the offset where the {@link com.bmaguir.FypApp.R.attr#sv_titleTextAppearance}
+          attribute's value can be found in the {@link #ShowcaseView} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.bmaguir.FypApp:sv_titleTextAppearance
+        */
+        public static final int ShowcaseView_sv_titleTextAppearance = 7;
+        /**
+          <p>This symbol is the offset where the {@link com.bmaguir.FypApp.R.attr#sv_titleTextColor}
+          attribute's value can be found in the {@link #ShowcaseView} array.
+
+
+          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+<p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+          @attr name com.bmaguir.FypApp:sv_titleTextColor
+        */
+        public static final int ShowcaseView_sv_titleTextColor = 2;
         /** Attributes that can be used with a WalletFragmentOptions.
            <p>Includes the following attributes:</p>
            <table>
@@ -923,7 +1180,7 @@ containing a value of this type.
            @see #WalletFragmentOptions_fragmentStyle
          */
         public static final int[] WalletFragmentOptions = {
-            0x7f010016, 0x7f010017, 0x7f010018, 0x7f010019
+            0x7f010021, 0x7f010022, 0x7f010023, 0x7f010024
         };
         /**
           <p>This symbol is the offset where the {@link com.bmaguir.FypApp.R.attr#appTheme}
@@ -1018,9 +1275,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #WalletFragmentStyle_maskedWalletDetailsTextAppearance
          */
         public static final int[] WalletFragmentStyle = {
-            0x7f01001a, 0x7f01001b, 0x7f01001c, 0x7f01001d,
-            0x7f01001e, 0x7f01001f, 0x7f010020, 0x7f010021,
-            0x7f010022, 0x7f010023, 0x7f010024
+            0x7f010025, 0x7f010026, 0x7f010027, 0x7f010028,
+            0x7f010029, 0x7f01002a, 0x7f01002b, 0x7f01002c,
+            0x7f01002d, 0x7f01002e, 0x7f01002f
         };
         /**
           <p>This symbol is the offset where the {@link com.bmaguir.FypApp.R.attr#buyButtonAppearance}

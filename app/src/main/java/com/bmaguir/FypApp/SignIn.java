@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.util.Pair;
@@ -15,6 +16,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.github.amlcurran.showcaseview.ShowcaseView;
+import com.github.amlcurran.showcaseview.targets.ActionViewTarget;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
@@ -63,7 +66,7 @@ public class SignIn extends Activity  implements
      */
     private boolean mIsInResolution;
 
-    private boolean mSignInAutomatically = true;
+    private boolean mSignInAutomatically = false;
 
     /**
      * Called when the activity is starting. Restores the activity state.
@@ -77,8 +80,34 @@ public class SignIn extends Activity  implements
             mIsInResolution = savedInstanceState.getBoolean(KEY_IN_RESOLUTION, false);
         }
         Log.d(TAG, "app created");
+
+        if(isFirstTime()){
+            onFirstTime();
+        }
+
     }
 
+    private void onFirstTime(){
+        new ShowcaseView.Builder(this)
+                .setTarget(new ActionViewTarget(this, ActionViewTarget.Type.HOME))
+                .setContentTitle("ShowcaseView")
+                .setContentText("This is highlighting the Home button")
+                .hideOnTouchOutside()
+                .build();
+    }
+
+    private boolean isFirstTime()
+    {
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        boolean ranBefore = preferences.getBoolean("isFirstTime", false);
+        if (!ranBefore) {
+            // first time
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("isFirstTime", true);
+            editor.commit();
+        }
+        return !ranBefore;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
