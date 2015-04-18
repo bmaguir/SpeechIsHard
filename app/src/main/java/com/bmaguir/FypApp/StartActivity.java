@@ -80,7 +80,7 @@ public class StartActivity extends Activity implements
 
     private Room mRoom;
     private String mMyId;
-
+    private boolean startGameBool;
     private PopupWindow mPopupWindow;
 
     int xCo, zCo;
@@ -105,6 +105,7 @@ public class StartActivity extends Activity implements
         mSpeechRecognizer.setRecognitionListener(listener);
 
         mPlayerType = "player2";
+        startGameBool = false;
     }
 
     void unityInit(){
@@ -226,6 +227,16 @@ public class StartActivity extends Activity implements
         MapInfo = mapIndex;
     }
 
+    public boolean getStartGame(){
+        if(startGameBool){
+            startGameBool = false;
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     //transfers mapinfo to unity code
     public int[] getMapInfo(){
 
@@ -259,6 +270,7 @@ public class StartActivity extends Activity implements
     }
 
     public void finishGame(int score) {
+
         byte[] message = ByteBuffer.allocate(4).order(ByteOrder.BIG_ENDIAN).putInt(score).array();
         byte[] header = Arrays.copyOf(message, message.length + 1);
         header[message.length] = 4;
@@ -272,14 +284,18 @@ public class StartActivity extends Activity implements
                 }
             }
         }
-        Games.Leaderboards.submitScore(mGoogleApiClient,getString(R.string.LEADERBOARD_ID), 1337);
-        Toast.makeText(this, "Level Completed in " + Integer.toString(score) + " seconds", Toast.LENGTH_LONG).show();
+        Log.d(TAG, "debug 1");
+        //Games.Leaderboards.submitScore(mGoogleApiClient,getString(R.string.LEADERBOARD_ID), 1337);
+        //Toast.makeText(this, "Level Completed in " + Integer.toString(score) + " seconds", Toast.LENGTH_LONG).show();
+        Log.d(TAG, "debug 2");
+        m_UnityPlayer.pause();
+        Log.d(TAG, "debug 3");
         startFinishGameActivity();
     }
 
 
     void startFinishGameActivity(){
-
+        Log.d(TAG, "debug 4");
         m_UnityPlayer.pause();
         LayoutInflater inflater = (LayoutInflater)
                 this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -301,7 +317,7 @@ public class StartActivity extends Activity implements
     public void cancel(View v){
         Log.d(TAG, "replaying match");
         mPopupWindow.dismiss();
-        unityInit();
+        //unityInit();
     }
 
     public void viewLeaderBoard(View v){
@@ -471,7 +487,7 @@ public class StartActivity extends Activity implements
                     MapInfo = temp;
                     //start game;
                     Log.d(TAG, "recieved message, starting game");
-                    m_UnityPlayer.resume();
+                    startGameNow();
                 }
                 break;
             case(2):    //player position
@@ -514,7 +530,7 @@ public class StartActivity extends Activity implements
                 intBuf.get(temp);
 
                 int score = temp[0];
-                m_UnityPlayer.pause();
+                //m_UnityPlayer.pause();
                 Toast.makeText(this, "Level Completed in " + Integer.toString(score) + " seconds", Toast.LENGTH_LONG).show();
                 startFinishGameActivity();
                 break;
@@ -662,9 +678,14 @@ public class StartActivity extends Activity implements
             }
         }
 
+    private void startGameNow(){
+        startGameBool = true;
+        m_UnityPlayer.resume();
+    }
 
     private void startGame() {
 
+        //finds the id with the highest alpha numerical value, sets them as player 1
         ArrayList<String> p = mRoom.getParticipantIds();
         for(int i=0; i<p.size(); i++){
             if( p.get(i).compareTo(mMyId) < 0)
@@ -673,7 +694,7 @@ public class StartActivity extends Activity implements
                 Log.d(TAG, "player 1 chosen, myId = " + mMyId + " otherId = " + p.get(i));
                 Toast.makeText(this, "player1", Toast.LENGTH_LONG).show();
                 setMapInfo();
-                m_UnityPlayer.resume();
+                startGameNow();
             }
             else if(p.get(i).compareTo(mMyId) != 0)
             {

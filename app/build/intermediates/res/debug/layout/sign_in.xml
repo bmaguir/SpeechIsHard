@@ -18,7 +18,8 @@
         android:text="Sign Out"
         android:id="@+id/button2"
         android:layout_gravity="center_horizontal"
-        android:onClick="signOut" />
+        android:onClick="signOut"
+        android:visibility="invisible" />
 
     <Button
         android:layout_width="match_parent"

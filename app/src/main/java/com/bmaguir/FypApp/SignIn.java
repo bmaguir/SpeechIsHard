@@ -88,12 +88,14 @@ public class SignIn extends Activity  implements
     }
 
     private void onFirstTime(){
+        /*
         new ShowcaseView.Builder(this)
                 .setTarget(new ActionViewTarget(this, ActionViewTarget.Type.HOME))
                 .setContentTitle("ShowcaseView")
                 .setContentText("This is highlighting the Home button")
                 .hideOnTouchOutside()
                 .build();
+                */
     }
 
     private boolean isFirstTime()
