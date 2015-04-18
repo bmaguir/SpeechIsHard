@@ -66,7 +66,7 @@ public class SignIn extends Activity  implements
      */
     private boolean mIsInResolution;
 
-    private boolean mSignInAutomatically = false;
+    private boolean mSignInAutomatically = true;
 
     /**
      * Called when the activity is starting. Restores the activity state.

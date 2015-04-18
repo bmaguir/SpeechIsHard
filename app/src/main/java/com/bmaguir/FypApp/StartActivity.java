@@ -69,6 +69,7 @@ public class StartActivity extends Activity implements
     private static final int REQUEST_LEADERBOARD = 1846;
     private boolean replay = false;
 
+
     private String mPlayerType;
 
     private int[] MapInfo;
@@ -106,6 +107,7 @@ public class StartActivity extends Activity implements
 
         mPlayerType = "player2";
         startGameBool = false;
+
     }
 
     void unityInit(){
@@ -269,28 +271,36 @@ public class StartActivity extends Activity implements
         return cor;
     }
 
+    int Score;
+
     public void finishGame(int score) {
+        Score = score;
+        this.runOnUiThread(new Runnable()
+        {
+            public void run()
+            {
+                byte[] message = ByteBuffer.allocate(4).order(ByteOrder.BIG_ENDIAN).putInt(Score).array();
+                byte[] header = Arrays.copyOf(message, message.length + 1);
+                header[message.length] = 4;
 
-        byte[] message = ByteBuffer.allocate(4).order(ByteOrder.BIG_ENDIAN).putInt(score).array();
-        byte[] header = Arrays.copyOf(message, message.length + 1);
-        header[message.length] = 4;
-
-        if (mRoom != null) { //if connected to a room
-            for (Participant p : mRoom.getParticipants()) {
-                if (!p.getParticipantId().equals(mMyId)) {
-                    Games.RealTimeMultiplayer.sendReliableMessage(mGoogleApiClient, null, header,
-                            mRoomId, p.getParticipantId());
-                    Log.d(TAG, "sent end game");
+                if (mRoom != null) { //if connected to a room
+                    for (Participant p : mRoom.getParticipants()) {
+                        if (!p.getParticipantId().equals(mMyId)) {
+                            Games.RealTimeMultiplayer.sendReliableMessage(mGoogleApiClient, null, header,
+                                    mRoomId, p.getParticipantId());
+                            Log.d(TAG, "sent end game");
+                        }
+                    }
                 }
+                Log.d(TAG, "debug 1");
+                Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.LEADERBOARD_ID), 1337);
+                Toast.makeText(context, "Level Completed in " + Integer.toString(Score) + " seconds", Toast.LENGTH_LONG).show();
+                Log.d(TAG, "debug 2");
+                m_UnityPlayer.pause();
+                Log.d(TAG, "debug 3");
+                startFinishGameActivity();
             }
-        }
-        Log.d(TAG, "debug 1");
-        //Games.Leaderboards.submitScore(mGoogleApiClient,getString(R.string.LEADERBOARD_ID), 1337);
-        //Toast.makeText(this, "Level Completed in " + Integer.toString(score) + " seconds", Toast.LENGTH_LONG).show();
-        Log.d(TAG, "debug 2");
-        m_UnityPlayer.pause();
-        Log.d(TAG, "debug 3");
-        startFinishGameActivity();
+        });
     }
 
 
@@ -298,12 +308,13 @@ public class StartActivity extends Activity implements
         Log.d(TAG, "debug 4");
         m_UnityPlayer.pause();
         LayoutInflater inflater = (LayoutInflater)
-                this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mPopupWindow = new PopupWindow(
                 inflater.inflate(R.layout.finish_game_layout, null, false),
                 300,
                 300,
                 true);
+        Log.d(TAG, "debug 5");
         mPopupWindow.showAtLocation(this.findViewById(R.id.frameLayout), Gravity.CENTER, 0, 0);
     }
 
@@ -311,7 +322,14 @@ public class StartActivity extends Activity implements
         Log.d(TAG, "replaying match");
         mPopupWindow.dismiss();
         replay = true;
-        unityInit();
+        if(mPlayerType.compareTo("player2") == 0){
+            mPlayerType = "player1";
+            setMapInfo();
+            startGameNow();
+        }
+        else{
+            mPlayerType = "player2";
+        }
     }
 
     public void cancel(View v){
@@ -482,7 +500,7 @@ public class StartActivity extends Activity implements
 
                     for (int i = 0; i < temp.length; i++) {
                         // temp[i] = array[i];
-                        Log.d(TAG, Integer.toString(temp[i]));
+                        //Log.d(TAG, Integer.toString(temp[i]));
                     }
                     MapInfo = temp;
                     //start game;

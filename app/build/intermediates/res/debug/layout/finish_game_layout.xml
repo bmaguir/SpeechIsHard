@@ -37,13 +37,13 @@
         android:text="Keep Playing"
         android:id="@+id/playAgain"
         android:layout_gravity="center_horizontal"
-        android:onClick="playAgain" />
+        android:onClick="playAgain"/>
 
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Main Menu"
-        android:id="@+id/button3"
+        android:id="@+id/menu"
         android:layout_gravity="center_horizontal"
         android:onClick="cancel" />
     <Button
@@ -51,6 +51,7 @@
         android:layout_height="wrap_content"
         android:onClick="viewLeaderBoard"
         android:layout_gravity="center_horizontal"
-        android:text="View leaderboard"/>
+        android:text="View leaderboard"
+        android:id="@+id/leaderboard"/>
 
 </LinearLayout><!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/src/main/res/layout/finish_game_layout.xml -->
