@@ -1,6 +1,5 @@
 package com.bmaguir.FypApp;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -19,7 +18,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -151,7 +149,6 @@ public class StartActivity extends Activity implements
 
                     @Override
                     public void onCompletion(MediaPlayer mp) {
-                        // TODO Auto-generated method stub
                         mp.reset();
                         mp.release();
                     }
@@ -229,6 +226,9 @@ public class StartActivity extends Activity implements
         MapInfo = mapIndex;
     }
 
+
+    //Unity called Functions
+
     public boolean getStartGame(){
         if(startGameBool){
             startGameBool = false;
@@ -293,7 +293,7 @@ public class StartActivity extends Activity implements
                     }
                 }
                 Log.d(TAG, "debug 1");
-                Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.LEADERBOARD_ID), 1337);
+                Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.LEADERBOARD_ID), Score);
                 Toast.makeText(context, "Level Completed in " + Integer.toString(Score) + " seconds", Toast.LENGTH_LONG).show();
                 Log.d(TAG, "debug 2");
                 m_UnityPlayer.pause();
@@ -321,7 +321,6 @@ public class StartActivity extends Activity implements
     public void playAgain(View v){
         Log.d(TAG, "replaying match");
         mPopupWindow.dismiss();
-        replay = true;
         if(mPlayerType.compareTo("player2") == 0){
             mPlayerType = "player1";
             setMapInfo();
@@ -332,15 +331,15 @@ public class StartActivity extends Activity implements
         }
     }
 
-    public void cancel(View v){
-        Log.d(TAG, "replaying match");
-        mPopupWindow.dismiss();
-        //unityInit();
-    }
-
     public void viewLeaderBoard(View v){
-        startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
-                getString(R.string.LEADERBOARD_ID)), REQUEST_LEADERBOARD);
+        if(mPlayerType.compareTo("player1") == 0) {
+            startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
+                    getString(R.string.LEADERBOARD_ID)), REQUEST_LEADERBOARD);
+        }
+        else{
+            startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
+                    getString(R.string.LEADERBOARD_GUIDE_ID)), REQUEST_LEADERBOARD);
+        }
     }
 
     @Override
@@ -420,20 +419,10 @@ public class StartActivity extends Activity implements
         // prevent screen from sleeping during handshake
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-
-
         //remove play button
         Button b = (Button) findViewById(R.id.play);
         b.setVisibility(View.GONE);
         // go to game screen
-
-        /*
-        //debug temp ////////
-
-        mPlayerType = "player1";
-        m_UnityPlayer.resume();
-
-        */
     }
 
     private RoomConfig.Builder makeBasicRoomConfigBuilder() {
@@ -530,7 +519,7 @@ public class StartActivity extends Activity implements
 
                     @Override
                     public void onCompletion(MediaPlayer mp) {
-                        // TODO Auto-generated method stub
+
                         mp.reset();
                         mp.release();
                         mp=null;
@@ -550,6 +539,7 @@ public class StartActivity extends Activity implements
                 int score = temp[0];
                 //m_UnityPlayer.pause();
                 Toast.makeText(this, "Level Completed in " + Integer.toString(score) + " seconds", Toast.LENGTH_LONG).show();
+                Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.LEADERBOARD_GUIDE_ID), Score);
                 startFinishGameActivity();
                 break;
         }
@@ -582,7 +572,27 @@ public class StartActivity extends Activity implements
 
     @Override
     public void onPeerLeft(Room room, List<String> strings) {
+        Log.d(TAG, "Partner's left the room");
+        m_UnityPlayer.pause();
 
+        LayoutInflater inflater = (LayoutInflater)
+                context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mPopupWindow = new PopupWindow(
+                inflater.inflate(R.layout.lost_connection_layout, null, false),
+                300,
+                300,
+                true);
+        mPopupWindow.showAtLocation(this.findViewById(R.id.frameLayout), Gravity.CENTER, 0, 0);
+    }
+
+    public void returnToMenu(View v){
+        setResult(3);
+        finish();
+    }
+
+    public void keepPlaying(View v){
+        mPopupWindow.dismiss();
+        m_UnityPlayer.resume();
     }
 
     @Override
@@ -612,7 +622,7 @@ public class StartActivity extends Activity implements
 
     @Override
     public void onP2PDisconnected(String s) {
-
+        Log.d(TAG, "peer disconnected from room");
     }
 
     @Override
@@ -683,15 +693,10 @@ public class StartActivity extends Activity implements
                     getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
                 }
                 break;
-
-            case FINISH_GAME_ACTIVITY:
-                if(resultCode == 0){
-                    //restart game
-                    replay = true;
-                }
-                else if(resultCode == 1){
-
-                }
+            default:
+                Toast.makeText(context, "leaving Game",Toast.LENGTH_SHORT).show();
+                setResult(2);
+                finish();
                 break;
             }
         }

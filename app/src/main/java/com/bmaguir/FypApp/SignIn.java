@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.github.amlcurran.showcaseview.ShowcaseView;
 import com.github.amlcurran.showcaseview.targets.ActionViewTarget;
+import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
@@ -66,7 +67,7 @@ public class SignIn extends Activity  implements
      */
     private boolean mIsInResolution;
 
-    private boolean mSignInAutomatically = true;
+    private boolean mSignInAutomatically;
 
     /**
      * Called when the activity is starting. Restores the activity state.
@@ -80,22 +81,41 @@ public class SignIn extends Activity  implements
             mIsInResolution = savedInstanceState.getBoolean(KEY_IN_RESOLUTION, false);
         }
         Log.d(TAG, "app created");
-
+        getSignInAutomatically();
         if(isFirstTime()){
             onFirstTime();
         }
 
     }
 
+    private void getSignInAutomatically(){
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        mSignInAutomatically = preferences.getBoolean("signInAutomatically", false);
+        if (!mSignInAutomatically) {
+            // first time
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("signInAutomatically", false);
+            editor.commit();
+        }
+    }
+
+    private void setSignInAutomatically(Boolean b){
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("signInAutomatically", b);
+        editor.commit();
+    }
+
     private void onFirstTime(){
-        /*
+
+        ViewTarget target = new ViewTarget(R.id.signIn, this);
         new ShowcaseView.Builder(this)
-                .setTarget(new ActionViewTarget(this, ActionViewTarget.Type.HOME))
-                .setContentTitle("ShowcaseView")
-                .setContentText("This is highlighting the Home button")
+                .setTarget(target)
+                .setContentTitle("Sign In")
+                .setContentText("Sign in to Google+ to allow for multilayer games")
                 .hideOnTouchOutside()
                 .build();
-                */
+
     }
 
     private boolean isFirstTime()
@@ -123,6 +143,7 @@ public class SignIn extends Activity  implements
         if (mGoogleApiClient != null && !mGoogleApiClient.isConnected()) {
             mGoogleApiClient.connect();
         }
+        setSignInAutomatically(true);
     }
 
     public void signOut(View v) {
@@ -130,6 +151,13 @@ public class SignIn extends Activity  implements
             Toast.makeText(this, "Signing out", Toast.LENGTH_LONG).show();
             Games.signOut(mGoogleApiClient);
         }
+        Button b = (Button) findViewById(R.id.signOut);
+        b.setVisibility(View.GONE);
+        b = (Button) findViewById(R.id.play);
+        b.setVisibility(View.GONE);
+        b = (Button) findViewById(R.id.signIn);
+        b.setVisibility(View.VISIBLE);
+        setSignInAutomatically(false);
 
     }
 
@@ -213,15 +241,21 @@ public class SignIn extends Activity  implements
                         if(mGoogleApiClient.isConnected()) {
                             mGoogleApiClient.disconnect();
                         }
-                        mSignInAutomatically = false;
+                        setSignInAutomatically(false);
                         Button b = (Button) findViewById(R.id.signIn);
                         b.setVisibility(View.VISIBLE);
                         b = (Button) findViewById(R.id.play);
+                        b.setVisibility(View.GONE);
+                        b = (Button) findViewById(R.id.signOut);
                         b.setVisibility(View.GONE);
                         break;
                     case(2):
                         if(!mGoogleApiClient.isConnected())
                             mGoogleApiClient.connect();
+                        break;
+                    case(3):
+                        Log.d(TAG, "connection lost");
+                        break;
                 }
             }
         }
@@ -243,6 +277,8 @@ public class SignIn extends Activity  implements
         Button b = (Button) findViewById(R.id.signIn);
         b.setVisibility(View.GONE);
         Button p = (Button) findViewById(R.id.play);
+        p.setVisibility(View.VISIBLE);
+        p = (Button) findViewById(R.id.signOut);
         p.setVisibility(View.VISIBLE);
 
         //start game activity

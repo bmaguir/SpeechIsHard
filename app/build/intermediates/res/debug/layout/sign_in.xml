@@ -16,10 +16,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign Out"
-        android:id="@+id/button2"
+        android:id="@+id/signOut"
         android:layout_gravity="center_horizontal"
         android:onClick="signOut"
-        android:visibility="invisible" />
+        android:visibility="gone" />
 
     <Button
         android:layout_width="match_parent"
