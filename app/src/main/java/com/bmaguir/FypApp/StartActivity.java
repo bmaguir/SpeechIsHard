@@ -105,7 +105,13 @@ public class StartActivity extends Activity implements
 
         mPlayerType = "player2";
         startGameBool = false;
+        replayGame = 0;
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //m_UnityPlayer.resume();
     }
 
     void unityInit(){
@@ -169,7 +175,8 @@ public class StartActivity extends Activity implements
                 m_UnityPlayer.resume();
                 return true;
             case R.id.debug:
-                startFinishGameActivity();
+                //startFinishGameActivity();
+                replayGame = 1;
                 return true;
             default:
                 return false;
@@ -228,6 +235,12 @@ public class StartActivity extends Activity implements
 
 
     //Unity called Functions
+
+    int replayGame;
+    public int getReplayGame(){
+        //Log.d(TAG, "getReplayGame");
+        return replayGame;
+}
 
     public boolean getStartGame(){
         if(startGameBool){
@@ -479,7 +492,6 @@ public class StartActivity extends Activity implements
 
         switch(header){
             case(1): //map info
-                if (mPlayerType.compareTo("player2") == 0) {
                     IntBuffer intBuf =
                             ByteBuffer.wrap(message)
                                     .order(ByteOrder.BIG_ENDIAN)
@@ -495,14 +507,13 @@ public class StartActivity extends Activity implements
                     //start game;
                     Log.d(TAG, "recieved message, starting game");
                     startGameNow();
-                }
                 break;
             case(2):    //player position
-                IntBuffer intBuf =
+                intBuf =
                         ByteBuffer.wrap(message)
                                 .order(ByteOrder.BIG_ENDIAN)
                                 .asIntBuffer();
-                int[] temp = new int[intBuf.remaining()];
+                temp = new int[intBuf.remaining()];
                 intBuf.get(temp);
 
                 xCo = temp[0];
@@ -540,6 +551,7 @@ public class StartActivity extends Activity implements
                 //m_UnityPlayer.pause();
                 Toast.makeText(this, "Level Completed in " + Integer.toString(score) + " seconds", Toast.LENGTH_LONG).show();
                 Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.LEADERBOARD_GUIDE_ID), Score);
+                xCo = xCo + 10;
                 startFinishGameActivity();
                 break;
         }
@@ -678,25 +690,16 @@ public class StartActivity extends Activity implements
                     mMyId = mRoom.getParticipantId(Games.Players.getCurrentPlayerId(mGoogleApiClient));
 
                     startGame();
-                } else if (resultCode == Activity.RESULT_CANCELED) {
-                    // Waiting room was dismissed with the back button. The meaning of this
-                    // action is up to the game. You may choose to leave the room and cancel the
-                    // match, or do something else like minimize the waiting room and
-                    // continue to connect in the background.
-
-                    // in this example, we take the simple approach and just leave the room:
-                    Games.RealTimeMultiplayer.leave(mGoogleApiClient, null, mRoomId);
-                    getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
                 } else {
-                    // player wants to leave the room.
-                    Games.RealTimeMultiplayer.leave(mGoogleApiClient, null, mRoomId);
+
+                    Games.RealTimeMultiplayer.leave(mGoogleApiClient, this, mRoomId);
                     getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+                    Button b = (Button) findViewById(R.id.play);
+                    b.setVisibility(View.VISIBLE);
                 }
                 break;
             default:
-                Toast.makeText(context, "leaving Game",Toast.LENGTH_SHORT).show();
-                setResult(2);
-                finish();
+                    Log.d(TAG, "default activity");
                 break;
             }
         }
