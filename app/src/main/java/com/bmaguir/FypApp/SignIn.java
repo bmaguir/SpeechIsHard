@@ -138,6 +138,12 @@ public class SignIn extends Activity  implements
         return true;
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
     public void signIn(View v) {
         Log.d(TAG, "signing in");
         if (mGoogleApiClient != null && !mGoogleApiClient.isConnected()) {

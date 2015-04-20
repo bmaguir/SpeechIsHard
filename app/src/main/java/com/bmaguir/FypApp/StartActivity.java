@@ -133,6 +133,9 @@ public class StartActivity extends Activity implements
     // Quit Unity
     @Override protected void onDestroy ()
     {
+        if(mGoogleApiClient.isConnected()){
+            Games.RealTimeMultiplayer.leave(mGoogleApiClient, this, mRoomId);
+        }
         m_UnityPlayer.quit();
         super.onDestroy();
     }
@@ -551,7 +554,9 @@ public class StartActivity extends Activity implements
                 //m_UnityPlayer.pause();
                 Toast.makeText(this, "Level Completed in " + Integer.toString(score) + " seconds", Toast.LENGTH_LONG).show();
                 Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.LEADERBOARD_GUIDE_ID), Score);
-                xCo = xCo + 10;
+                //pushes the player into the end section
+                //xCo = xCo + 100;
+                zCo = zCo + 100;
                 startFinishGameActivity();
                 break;
         }

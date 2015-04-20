@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignIn">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign In"
+        android:id="@+id/signIn"
+        android:onClick="signIn" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Out"
+        android:id="@+id/signOut"
+        android:layout_gravity="center_horizontal"
+        android:onClick="signOut"
+        android:visibility="gone" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        android:id="@+id/play"
+        android:layout_gravity="center_horizontal"
+        android:onClick="play"
+        android:visibility="invisible" />
+</LinearLayout><!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/src/main/res/layout/sign_in.xml -->
