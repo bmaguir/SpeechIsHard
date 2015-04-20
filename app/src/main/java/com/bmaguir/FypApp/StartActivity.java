@@ -82,7 +82,7 @@ public class StartActivity extends Activity implements
     private boolean startGameBool;
     private PopupWindow mPopupWindow;
 
-    int xCo, zCo;
+    int xCo, zCo, yCo;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -195,8 +195,8 @@ public class StartActivity extends Activity implements
     //sets random values for the map, textures and key loc etc...
     private void setMapInfo(){
         int size = 5;
-        int materialsLength = 4;
-        int statuesLength = 4;
+        int materialsLength = 5;
+        int statuesLength = 5;
         Random rand = new Random();
         int[] mapIndex = new int [size*size*2+2];
         for(int i=0;i<size*size;i++){
@@ -262,12 +262,13 @@ public class StartActivity extends Activity implements
         return MapInfo;
     }
 
-    public void setPlayerCo(int x, int z){
+    public void setPlayerCo(int x, int z, int y){
 
         byte[] x_bytes =  ByteBuffer.allocate(4).order(ByteOrder.BIG_ENDIAN).putInt(x).array();
         byte[] z_bytes =  ByteBuffer.allocate(4).order(ByteOrder.BIG_ENDIAN).putInt(z).array();
+        byte[] y_bytes =  ByteBuffer.allocate(4).order(ByteOrder.BIG_ENDIAN).putInt(y).array();
 
-        byte[] message = new byte[9];
+        byte[] message = new byte[13];
 
         for(int i=0;i<4;i++){
             message[i] = x_bytes[i];
@@ -275,7 +276,10 @@ public class StartActivity extends Activity implements
         for(int i=4;i<8;i++){
             message[i] = z_bytes[i-4];
         }
-        message[8] = 2;
+        for(int i=8;i<12;i++){
+            message[i] = y_bytes[i-8];
+        }
+        message[12] = 2;
 
         if(mRoom != null) { //if connected to a room
             Games.RealTimeMultiplayer.sendUnreliableMessageToOthers(mGoogleApiClient, message, mRoomId);
@@ -283,53 +287,72 @@ public class StartActivity extends Activity implements
     }
 
     public int[] getPlayerCo(){
-        int [] cor = {xCo, zCo};
+        int [] cor = {xCo, zCo, yCo};
         return cor;
     }
 
     int Score;
 
-    public void finishGame(int score) {
+    public void finishGame(int score, final boolean winGame) {
         Score = score;
+        if(!winGame){
+            Score = -1;
+        }
         this.runOnUiThread(new Runnable()
         {
             public void run()
             {
-                byte[] message = ByteBuffer.allocate(4).order(ByteOrder.BIG_ENDIAN).putInt(Score).array();
-                byte[] header = Arrays.copyOf(message, message.length + 1);
-                header[message.length] = 4;
+                if(mPlayerType.compareTo("player1") == 0) {
 
-                if (mRoom != null) { //if connected to a room
-                    for (Participant p : mRoom.getParticipants()) {
-                        if (!p.getParticipantId().equals(mMyId)) {
-                            Games.RealTimeMultiplayer.sendReliableMessage(mGoogleApiClient, null, header,
-                                    mRoomId, p.getParticipantId());
-                            Log.d(TAG, "sent end game");
+                    byte[] message = ByteBuffer.allocate(4).order(ByteOrder.BIG_ENDIAN).putInt(Score).array();
+                    byte[] header = Arrays.copyOf(message, message.length + 1);
+                    header[message.length] = 4;
+
+                    if (mRoom != null) { //if connected to a room
+                        for (Participant p : mRoom.getParticipants()) {
+                            if (!p.getParticipantId().equals(mMyId)) {
+                                Games.RealTimeMultiplayer.sendReliableMessage(mGoogleApiClient, null, header,
+                                        mRoomId, p.getParticipantId());
+                                Log.d(TAG, "sent end game");
+                            }
                         }
                     }
+                    if(winGame) {
+                        Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.LEADERBOARD_ID), Score);
+                        Toast.makeText(context, "Level Completed in " + Integer.toString(Score) + " seconds", Toast.LENGTH_LONG).show();
+                        startFinishGameActivity(true);
+                    }
+                    else{
+                        startFinishGameActivity(false);
+                    }
+
                 }
-                Log.d(TAG, "debug 1");
-                Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.LEADERBOARD_ID), Score);
-                Toast.makeText(context, "Level Completed in " + Integer.toString(Score) + " seconds", Toast.LENGTH_LONG).show();
-                Log.d(TAG, "debug 2");
-                m_UnityPlayer.pause();
-                Log.d(TAG, "debug 3");
-                startFinishGameActivity();
             }
         });
     }
 
 
-    void startFinishGameActivity(){
+    void startFinishGameActivity(boolean win){
         Log.d(TAG, "debug 4");
         m_UnityPlayer.pause();
         LayoutInflater inflater = (LayoutInflater)
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mPopupWindow = new PopupWindow(
-                inflater.inflate(R.layout.finish_game_layout, null, false),
-                300,
-                300,
-                true);
+        if(win) {
+            mPopupWindow = new PopupWindow(
+                    inflater.inflate(R.layout.finish_game_layout, null, false),
+                    300,
+                    300,
+                    true);
+            TextView tv = (TextView) mPopupWindow.getContentView().findViewById(R.id.popupScore);
+            tv.setText(Integer.toString(Score));
+        }
+        else{
+            mPopupWindow = new PopupWindow(
+                    inflater.inflate(R.layout.lost_game_layout, null, false),
+                    300,
+                    300,
+                    true);
+        }
         Log.d(TAG, "debug 5");
         mPopupWindow.showAtLocation(this.findViewById(R.id.frameLayout), Gravity.CENTER, 0, 0);
     }
@@ -521,6 +544,7 @@ public class StartActivity extends Activity implements
 
                 xCo = temp[0];
                 zCo = temp[1];
+                yCo = temp[2];
                 break;
             case(3):    //speech message
                 TextView textView = (TextView)findViewById(R.id.textView);
@@ -551,13 +575,20 @@ public class StartActivity extends Activity implements
                 intBuf.get(temp);
 
                 int score = temp[0];
-                //m_UnityPlayer.pause();
-                Toast.makeText(this, "Level Completed in " + Integer.toString(score) + " seconds", Toast.LENGTH_LONG).show();
-                Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.LEADERBOARD_GUIDE_ID), Score);
-                //pushes the player into the end section
-                //xCo = xCo + 100;
-                zCo = zCo + 100;
-                startFinishGameActivity();
+
+                //player has won the game!
+                if(score > 0) {
+                    Score = score;
+                    Toast.makeText(this, "Level Completed in " + Integer.toString(score) + " seconds", Toast.LENGTH_LONG).show();
+                    Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.LEADERBOARD_GUIDE_ID), Score);
+                    //pushes the player into the end section
+                    zCo = zCo + 100;
+                    startFinishGameActivity(true);
+                }
+                else{
+                    startFinishGameActivity(false);
+                }
+
                 break;
         }
     }
