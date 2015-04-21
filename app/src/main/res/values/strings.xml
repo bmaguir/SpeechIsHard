@@ -4,4 +4,9 @@
     <string name="app_id">101377606831</string>
     <string name="LEADERBOARD_ID">CgkIr4nO1PkCEAIQCQ</string>
     <string name="LEADERBOARD_GUIDE_ID">CgkIr4nO1PkCEAIQAw</string>
+    <string name="title_activity_practice_play">Practice</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_invite_player">InvitePlayerActivity</string>
 </resources>

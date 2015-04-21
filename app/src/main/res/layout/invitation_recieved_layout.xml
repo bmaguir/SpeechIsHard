@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/common_signin_btn_default_background"
+    tools:context=".InvitePlayerActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=
+        "You've Got a \n new Invitation!"
+        android:id="@+id/textView4"
+        android:textColor="#ffffffff"
+        android:textAlignment="center" />
+    />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Accept"
+        android:id="@+id/acceptInvitation"
+        android:layout_gravity="center_horizontal"
+        android:onClick="acceptInvitation"
+        android:textColor="#ffffffff"/>
+    />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Decline"
+        android:id="@+id/declineInvitation"
+        android:layout_gravity="center_horizontal"
+        android:onClick="declineInvitation"
+        android:textColor="#ffffffff"/>
+    />
+
+</LinearLayout>

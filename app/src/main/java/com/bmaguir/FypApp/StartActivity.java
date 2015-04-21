@@ -18,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -30,7 +31,9 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
 import com.google.android.gms.games.GamesActivityResultCodes;
 import com.google.android.gms.games.GamesStatusCodes;
+import com.google.android.gms.games.multiplayer.Invitation;
 import com.google.android.gms.games.multiplayer.Multiplayer;
+import com.google.android.gms.games.multiplayer.OnInvitationReceivedListener;
 import com.google.android.gms.games.multiplayer.Participant;
 import com.google.android.gms.games.multiplayer.realtime.RealTimeMessage;
 import com.google.android.gms.games.multiplayer.realtime.RealTimeMessageReceivedListener;
@@ -56,31 +59,26 @@ public class StartActivity extends Activity implements
         RoomStatusUpdateListener
 {
     private static final String TAG = "debugStartActivity";
-    private UnityPlayer m_UnityPlayer;
+    public UnityPlayer m_UnityPlayer;
     SpeechRecognizer mSpeechRecognizer;
     Intent mSpeechRecognizerIntent;
     boolean mIsListening;
     public static Context context;
-    private GoogleApiClient mGoogleApiClient;
-    private String mRoomId;
-    private static final int FINISH_GAME_ACTIVITY = 1278;
+    protected GoogleApiClient mGoogleApiClient;
+    protected String mRoomId;
     private static final int REQUEST_LEADERBOARD = 1846;
     private boolean replay = false;
-
-
-    private String mPlayerType;
-
+    final static int RC_SELECT_PLAYERS = 46579;
+    final static int RC_INVITATION_INBOX = 10045;
+    public String mPlayerType;
     private int[] MapInfo;
-
     //room identifier
     final static int RC_WAITING_ROOM = 10002;
-
     int MAX_PLAYERS = 1;
-
-    private Room mRoom;
-    private String mMyId;
+    protected Room mRoom;
+    protected String mMyId;
     private boolean startGameBool;
-    private PopupWindow mPopupWindow;
+    public PopupWindow mPopupWindow;
 
     int xCo, zCo, yCo;
 
@@ -151,20 +149,6 @@ public class StartActivity extends Activity implements
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.menuSignIn:
-                MediaPlayer mp;
-                mp = MediaPlayer.create(context, R.raw.blop);
-                mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-
-                    @Override
-                    public void onCompletion(MediaPlayer mp) {
-                        mp.reset();
-                        mp.release();
-                    }
-
-                });
-                mp.start();
-                return true;
             case R.id.menuSignOut:
                 if(mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
                     mGoogleApiClient.disconnect();
@@ -172,15 +156,13 @@ public class StartActivity extends Activity implements
                 setResult(1);
                 finish();
                 return true;
-            case R.id.menuPlay:
-                setMapInfo();
-                mPlayerType = "player1";
-                m_UnityPlayer.resume();
-                return true;
             case R.id.debug:
-                //startFinishGameActivity();
-                replayGame = 1;
+                Intent i = Games.RealTimeMultiplayer.getSelectOpponentsIntent(mGoogleApiClient, 1, 2, true);
+                startActivityForResult(i, RC_SELECT_PLAYERS);
                 return true;
+            case R.id.exitGame:
+                setResult(2);
+                finish();
             default:
                 return false;
         }
@@ -193,7 +175,7 @@ public class StartActivity extends Activity implements
     }
 
     //sets random values for the map, textures and key loc etc...
-    private void setMapInfo(){
+    public void setMapInfo(){
         int size = 5;
         int materialsLength = 5;
         int statuesLength = 5;
@@ -208,12 +190,6 @@ public class StartActivity extends Activity implements
         mapIndex[size*size*2] = rand.nextInt(size);
         mapIndex[size*size*2+1] = rand.nextInt(size);
 
-/*
-        //debug
-        for(int i=0;i<mapIndex.length; i++){
-            mapIndex[i] = 3;
-        }
-*/
         ByteBuffer byteBuffer = ByteBuffer.allocate(mapIndex.length * 4);
         IntBuffer intBuffer = byteBuffer.asIntBuffer();
         intBuffer.put(mapIndex);
@@ -340,8 +316,8 @@ public class StartActivity extends Activity implements
         if(win) {
             mPopupWindow = new PopupWindow(
                     inflater.inflate(R.layout.finish_game_layout, null, false),
-                    300,
-                    300,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
                     true);
             TextView tv = (TextView) mPopupWindow.getContentView().findViewById(R.id.popupScore);
             tv.setText(Integer.toString(Score));
@@ -354,7 +330,7 @@ public class StartActivity extends Activity implements
                     true);
         }
         Log.d(TAG, "debug 5");
-        mPopupWindow.showAtLocation(this.findViewById(R.id.frameLayout), Gravity.CENTER, 0, 0);
+        mPopupWindow.showAtLocation(this.findViewById(R.id.linearlayout), Gravity.CENTER, 0, 0);
     }
 
     public void playAgain(View v){
@@ -379,6 +355,11 @@ public class StartActivity extends Activity implements
             startActivityForResult(Games.Leaderboards.getLeaderboardIntent(mGoogleApiClient,
                     getString(R.string.LEADERBOARD_GUIDE_ID)), REQUEST_LEADERBOARD);
         }
+    }
+
+    public void startCorrection(View v){
+        Intent intent = new Intent(this, correctionFragment.class);
+        startActivity(intent);
     }
 
     @Override
@@ -440,11 +421,8 @@ public class StartActivity extends Activity implements
 
     public void playClick(View v){
 
-        Log.d(TAG, "starting game");
+        Log.d(TAG, "starting auto match game");
 
-
-        // auto-match criteria to invite one random automatch opponent.
-        // You can also specify more opponents (up to 3).
         Bundle am = RoomConfig.createAutoMatchCriteria(1, 1, 0);
 
         // build the room config:
@@ -461,10 +439,11 @@ public class StartActivity extends Activity implements
         //remove play button
         Button b = (Button) findViewById(R.id.play);
         b.setVisibility(View.GONE);
-        // go to game screen
+
+        //Goes to OnRoomCreated()
     }
 
-    private RoomConfig.Builder makeBasicRoomConfigBuilder() {
+    protected RoomConfig.Builder makeBasicRoomConfigBuilder() {
         RoomConfig.Builder builder = RoomConfig.builder(this);
         builder.setMessageReceivedListener(this);
         builder.setRoomStatusUpdateListener(this);
@@ -474,7 +453,9 @@ public class StartActivity extends Activity implements
     }
 
     @Override
-    public void onConnected(Bundle bundle) {
+    public void onConnected(Bundle connectionHint) {
+        Log.d(TAG, "checking for invitations");
+
         Button b = (Button) findViewById(R.id.play);
         b.setVisibility(View.VISIBLE);
     }
@@ -595,12 +576,12 @@ public class StartActivity extends Activity implements
 
     @Override
     public void onRoomConnecting(Room room) {
-
+        Log.d(TAG, "roomConnecting");
     }
 
     @Override
     public void onRoomAutoMatching(Room room) {
-
+        Log.d(TAG, "roomAutoMatching");
     }
 
     @Override
@@ -615,7 +596,7 @@ public class StartActivity extends Activity implements
 
     @Override
     public void onPeerJoined(Room room, List<String> strings) {
-
+        Log.d(TAG, "peerJoined");
     }
 
     @Override
@@ -627,8 +608,8 @@ public class StartActivity extends Activity implements
                 context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mPopupWindow = new PopupWindow(
                 inflater.inflate(R.layout.lost_connection_layout, null, false),
-                300,
-                300,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
                 true);
         mPopupWindow.showAtLocation(this.findViewById(R.id.frameLayout), Gravity.CENTER, 0, 0);
     }
@@ -645,7 +626,7 @@ public class StartActivity extends Activity implements
 
     @Override
     public void onConnectedToRoom(Room room) {
-        Log.d(TAG, "room disconnected");
+        Log.d(TAG, "room connected");
     }
 
     @Override
@@ -712,7 +693,7 @@ public class StartActivity extends Activity implements
 
     @Override
     public void onRoomConnected(int statusCode, Room room) {
-
+        Log.d(TAG, "roomConnected");
     }
 
     @Override
@@ -740,12 +721,12 @@ public class StartActivity extends Activity implements
             }
         }
 
-    private void startGameNow(){
+    protected void startGameNow(){
         startGameBool = true;
         m_UnityPlayer.resume();
     }
 
-    private void startGame() {
+    protected void startGame() {
 
         //finds the id with the highest alpha numerical value, sets them as player 1
         ArrayList<String> p = mRoom.getParticipantIds();

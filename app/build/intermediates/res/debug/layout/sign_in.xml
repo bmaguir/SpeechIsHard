@@ -6,11 +6,14 @@
     tools:context=".SignIn">
 
     <Button
+        android:background="@color/common_signin_btn_default_background"
+        android:textColor="@color/common_signin_btn_dark_text_default"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Sign In"
         android:id="@+id/signIn"
-        android:onClick="signIn" />
+        android:onClick="signIn"
+        android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="match_parent"
@@ -22,11 +25,28 @@
         android:visibility="gone" />
 
     <Button
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Play with Friends"
+    android:id="@+id/invite"
+    android:layout_gravity="center_horizontal"
+    android:onClick="inviteFriends"
+    android:visibility="gone" />
+
+    <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Play"
+        android:text="Quick Match"
         android:id="@+id/play"
         android:layout_gravity="center_horizontal"
         android:onClick="play"
-        android:visibility="invisible" />
+        android:visibility="gone" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Practice"
+        android:id="@+id/button3"
+        android:layout_gravity="center_horizontal"
+        android:onClick="startPractice"/>
 </LinearLayout><!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/src/main/res/layout/sign_in.xml -->

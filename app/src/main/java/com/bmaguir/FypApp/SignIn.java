@@ -161,10 +161,17 @@ public class SignIn extends Activity  implements
         b.setVisibility(View.GONE);
         b = (Button) findViewById(R.id.play);
         b.setVisibility(View.GONE);
+        b = (Button) findViewById(R.id.invite);
+        b.setVisibility(View.GONE);
         b = (Button) findViewById(R.id.signIn);
         b.setVisibility(View.VISIBLE);
         setSignInAutomatically(false);
 
+    }
+
+    public void startPractice(View v){
+        Intent intent = new Intent(this, PracticePlayActivity.class);
+        startActivity(intent);
     }
 
     public void play(View v){
@@ -173,9 +180,16 @@ public class SignIn extends Activity  implements
         ///*
         if(mGoogleApiClient.isConnected()) {
             Intent intent = new Intent(this, StartActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, START_ACTIVITY_REQUEST);
         }
         //*/
+    }
+
+    public void inviteFriends(View v){
+        if(mGoogleApiClient.isConnected()) {
+            Intent intent = new Intent(this, InvitePlayerActivity.class);
+            startActivityForResult(intent, START_ACTIVITY_REQUEST);
+        }
     }
 
     /**
@@ -262,6 +276,10 @@ public class SignIn extends Activity  implements
                     case(3):
                         Log.d(TAG, "connection lost");
                         break;
+                    default:
+                        if(!mGoogleApiClient.isConnected())
+                            mGoogleApiClient.connect();
+                        break;
                 }
             }
         }
@@ -286,11 +304,13 @@ public class SignIn extends Activity  implements
         p.setVisibility(View.VISIBLE);
         p = (Button) findViewById(R.id.signOut);
         p.setVisibility(View.VISIBLE);
+        p = (Button) findViewById(R.id.invite);
+        p.setVisibility(View.VISIBLE);
 
         //start game activity
         if(mSignInAutomatically) {
             //commented out for debugging backend!
-            ///*
+            /*
             Intent intent = new Intent(this, StartActivity.class);
             startActivityForResult(intent, START_ACTIVITY_REQUEST);
             //*/

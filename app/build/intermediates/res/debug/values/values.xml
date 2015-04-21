@@ -37,6 +37,12 @@
     <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/values/values.xml -->
     <eat-comment/>
     <dimen name="action_bar_offset">66dp</dimen>
+    <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/values/values.xml -->
+    <eat-comment/>
     <dimen name="button_margin">12dp</dimen>
     <dimen name="showcase_radius">94dp</dimen>
     <dimen name="showcase_radius_inner">96dp</dimen>
@@ -48,6 +54,9 @@
     <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/version.xml -->
     <eat-comment/>
     <integer name="google_play_services_version">6587000</integer>
+    <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/src/main/res/values/refs.xml -->
+    <eat-comment/>
+    <item name="fragment_item" type="layout">@layout/fragment_item_list</item>
     <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="LEADERBOARD_GUIDE_ID">CgkIr4nO1PkCEAIQAw</string>
@@ -57,8 +66,9 @@
     <string name="accept">Accept</string>
     <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string name="action_settings">Settings</string>
     <string name="app_id">101377606831</string>
-    <string name="app_name">FypApp</string>
+    <string name="app_name">SpeechIsHard</string>
     <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/common_strings.xml -->
     <eat-comment/>
     <string name="common_android_wear_notification_needs_update_text">An application requires an update to the Android Wear app.</string>
@@ -94,6 +104,9 @@
     <string name="create_calendar_message">Allow Ad to create a calendar event?</string>
     <string name="create_calendar_title">Create calendar event</string>
     <string name="decline">Decline</string>
+    <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="hello_world">Hello world!</string>
     <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/values/values.xml -->
     <eat-comment/>
     <string name="ok">OK</string>
@@ -101,9 +114,45 @@
     <eat-comment/>
     <string name="store_picture_message">"Allow Ad to store image in Picture gallery?"</string>
     <string name="store_picture_title">Save image</string>
+    <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="title_activity_invite_player">InvitePlayerActivity</string>
+    <string name="title_activity_practice_play">Practice</string>
     <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/wallet_strings.xml -->
     <eat-comment/>
     <string name="wallet_buy_button_place_holder" translation_description="Text on a button that allows a user to make a payment with Google Wallet [CHAR LIMIT=30]">Buy with Google</string>
+    <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/src/main/res/values/styles_speechishard.xml -->
+    <eat-comment/>
+    <style name="ActionBar.Solid.Speechishard" parent="@android:style/Widget.Holo.Light.ActionBar.Solid">
+        <item name="android:background">@drawable/ab_solid_speechishard</item>
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_speechishard</item>
+        <item name="android:backgroundSplit">@drawable/ab_bottom_solid_speechishard</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Speechishard</item>
+    </style>
+    <style name="ActionBar.Transparent.Speechishard" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@drawable/ab_transparent_speechishard</item>
+        <item name="android:progressBarStyle">@style/ProgressBar.Speechishard</item>
+    </style>
+    <style name="ActionBarTabStyle.Speechishard" parent="@android:style/Widget.Holo.Light.ActionBar.TabView">
+        <item name="android:background">@drawable/tab_indicator_ab_speechishard</item>
+    </style>
+    <style name="ActionButton.CloseMode.Speechishard" parent="@android:style/Widget.Holo.Light.ActionButton.CloseMode">
+        <item name="android:background">@drawable/btn_cab_done_speechishard</item>
+    </style>
+    <style name="DropDownListView.Speechishard" parent="@android:style/Widget.Holo.Light.ListView.DropDown">
+        <item name="android:listSelector">@drawable/selectable_background_speechishard</item>
+    </style>
+    <style name="DropDownNav.Speechishard" parent="@android:style/Widget.Holo.Light.Spinner">
+        <item name="android:background">@drawable/spinner_background_ab_speechishard</item>
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_speechishard</item>
+        <item name="android:dropDownSelector">@drawable/selectable_background_speechishard</item>
+    </style>
+    <style name="PopupMenu.Speechishard" parent="@android:style/Widget.Holo.Light.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/menu_dropdown_panel_speechishard</item>	
+    </style>
+    <style name="ProgressBar.Speechishard" parent="@android:style/Widget.Holo.Light.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/progress_horizontal_speechishard</item>
+    </style>
     <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/build/intermediates/exploded-aar/com.github.amlcurran.showcaseview/library/5.0.0/res/values/values.xml -->
     <eat-comment/>
     <style name="ShowcaseButton">
@@ -151,6 +200,26 @@
     <item name="android:windowIsFloating">true</item>
     <item name="android:backgroundDimEnabled">false</item>
   </style>
+    <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/src/main/res/values/styles_speechishard.xml -->
+    <eat-comment/>
+    <style name="Theme.Speechishard" parent="@android:style/Theme.Holo.Light">
+
+        <item name="android:actionBarItemBackground">@drawable/selectable_background_speechishard</item>
+        <item name="android:popupMenuStyle">@style/PopupMenu.Speechishard</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Speechishard</item>
+        <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Speechishard</item>
+        <item name="android:actionDropDownStyle">@style/DropDownNav.Speechishard</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Speechishard</item>
+        <item name="android:actionModeBackground">@drawable/cab_background_top_speechishard</item>
+        <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_speechishard</item>
+        <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Speechishard</item>
+        
+        
+    </style>
+    <style name="Theme.Speechishard.Widget" parent="@android:style/Theme.Holo">
+        <item name="android:popupMenuStyle">@style/PopupMenu.Speechishard</item>
+        <item name="android:dropDownListViewStyle">@style/DropDownListView.Speechishard</item>
+    </style>
     <!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.5.87/res/values/wallet_styles.xml -->
     <eat-comment/>
     <style name="WalletFragmentDefaultButtonTextAppearance">

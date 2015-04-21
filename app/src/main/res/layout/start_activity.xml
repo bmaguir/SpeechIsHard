@@ -4,7 +4,8 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
-    tools:context=".SignIn">
+    tools:context=".SignIn"
+    android:id="@+id/linearlayout">
 
     <Button
         android:layout_width="match_parent"
@@ -12,7 +13,7 @@
         android:text="Start Game"
         android:id="@+id/play"
         android:onClick="playClick"
-        android:visibility="visible" />
+        android:visibility="visible"/>
 
     <FrameLayout
         android:layout_width="match_parent"

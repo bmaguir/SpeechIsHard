@@ -5,7 +5,7 @@
     android:versionName="1.0.1" >
 
     <uses-sdk
-        android:minSdkVersion="9"
+        android:minSdkVersion="14"
         android:targetSdkVersion="21" />
 
     <supports-screens
@@ -28,7 +28,6 @@
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
         android:maxSdkVersion="18" />
@@ -39,10 +38,12 @@
 
     <application
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name" >
+        android:label="@string/app_name"
+        android:theme="@style/Theme.Speechishard" >
         <activity
             android:name=".StartActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:parentActivityName=".SignIn" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.bmaguir.FypApp.SignIn" />
@@ -60,9 +61,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.gms.games.APP_ID"
             android:value="@string/app_id" />
+
+        <activity
+            android:name=".PracticePlayActivity"
+            android:label="@string/title_activity_practice_play"
+            android:parentActivityName=".SignIn" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bmaguir.FypApp.SignIn" />
+        </activity>
+        <activity
+            android:name=".InvitePlayerActivity"
+            android:label="@string/title_activity_invite_player"
+            android:parentActivityName=".SignIn" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bmaguir.FypApp.SignIn" />
+        </activity>
     </application>
 
 </manifest>
