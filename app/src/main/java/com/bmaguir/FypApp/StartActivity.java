@@ -325,8 +325,8 @@ public class StartActivity extends Activity implements
         else{
             mPopupWindow = new PopupWindow(
                     inflater.inflate(R.layout.lost_game_layout, null, false),
-                    300,
-                    300,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT,
                     true);
         }
         Log.d(TAG, "debug 5");

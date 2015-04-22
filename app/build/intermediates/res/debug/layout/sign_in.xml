@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignIn">
+    tools:context=".SignIn"
+    android:id="@+id/signin_linear_layout">
 
     <Button
         android:background="@color/common_signin_btn_default_background"
@@ -49,4 +50,5 @@
         android:id="@+id/button3"
         android:layout_gravity="center_horizontal"
         android:onClick="startPractice"/>
+
 </LinearLayout><!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/src/main/res/layout/sign_in.xml -->

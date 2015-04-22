@@ -22,21 +22,21 @@ public final class R {
 	}
 	public static final class dimen {
 		public static final int action_bar_offset = 0x7f060000;
-		public static final int button_margin = 0x7f060001;
-		public static final int showcase_radius = 0x7f060002;
-		public static final int showcase_radius_inner = 0x7f060003;
-		public static final int showcase_radius_outer = 0x7f060004;
-		public static final int text_padding = 0x7f060005;
+		public static final int button_margin = 0x7f060003;
+		public static final int showcase_radius = 0x7f060004;
+		public static final int showcase_radius_inner = 0x7f060005;
+		public static final int showcase_radius_outer = 0x7f060006;
+		public static final int text_padding = 0x7f060007;
 	}
 	public static final class drawable {
-		public static final int btn_cling_normal = 0x7f020001;
-		public static final int btn_cling_pressed = 0x7f020002;
-		public static final int button = 0x7f020003;
-		public static final int button_normal = 0x7f020004;
-		public static final int cling = 0x7f020005;
-		public static final int cling_bleached = 0x7f020006;
-		public static final int cling_button_bg = 0x7f020007;
-		public static final int hand = 0x7f020022;
+		public static final int btn_cling_normal = 0x7f02000b;
+		public static final int btn_cling_pressed = 0x7f02000c;
+		public static final int button = 0x7f02000d;
+		public static final int button_normal = 0x7f02000e;
+		public static final int cling = 0x7f020011;
+		public static final int cling_bleached = 0x7f020012;
+		public static final int cling_button_bg = 0x7f020013;
+		public static final int hand = 0x7f02002e;
 	}
 	public static final class id {
 		public static final int showcase_button = 0x7f070000;
@@ -44,20 +44,20 @@ public final class R {
 		public static final int showcase_title_text = 0x7f070002;
 	}
 	public static final class layout {
-		public static final int handy = 0x7f030001;
-		public static final int showcase_button = 0x7f030004;
+		public static final int handy = 0x7f030003;
+		public static final int showcase_button = 0x7f030007;
 	}
 	public static final class string {
-		public static final int ok = 0x7f090024;
+		public static final int ok = 0x7f090026;
 	}
 	public static final class style {
-		public static final int ShowcaseButton = 0x7f0a0000;
-		public static final int ShowcaseView = 0x7f0a0001;
-		public static final int ShowcaseView_Light = 0x7f0a0002;
-		public static final int TextAppearance_ShowcaseView_Detail = 0x7f0a0003;
-		public static final int TextAppearance_ShowcaseView_Detail_Light = 0x7f0a0004;
-		public static final int TextAppearance_ShowcaseView_Title = 0x7f0a0005;
-		public static final int TextAppearance_ShowcaseView_Title_Light = 0x7f0a0006;
+		public static final int ShowcaseButton = 0x7f0a0008;
+		public static final int ShowcaseView = 0x7f0a0009;
+		public static final int ShowcaseView_Light = 0x7f0a000a;
+		public static final int TextAppearance_ShowcaseView_Detail = 0x7f0a000b;
+		public static final int TextAppearance_ShowcaseView_Detail_Light = 0x7f0a000c;
+		public static final int TextAppearance_ShowcaseView_Title = 0x7f0a000d;
+		public static final int TextAppearance_ShowcaseView_Title_Light = 0x7f0a000e;
 	}
 	public static final class styleable {
 		public static final int[] CustomTheme = { 0x7f010003 };

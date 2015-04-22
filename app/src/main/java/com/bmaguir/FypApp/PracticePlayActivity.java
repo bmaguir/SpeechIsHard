@@ -3,6 +3,9 @@ package com.bmaguir.FypApp;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
+
+import com.google.android.gms.common.ConnectionResult;
 
 
 public class PracticePlayActivity extends StartActivity {
@@ -10,6 +13,13 @@ public class PracticePlayActivity extends StartActivity {
     @Override
     protected void onStart() {
         super.onStart();
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+        //Toast.makeText(this, "Connection Failure", Toast.LENGTH_SHORT).show();
+        //setResult(2);
+       // finish();
     }
 
     public void playClick(View v){

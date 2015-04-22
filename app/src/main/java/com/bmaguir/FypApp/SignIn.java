@@ -9,21 +9,23 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.util.Pair;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import com.github.amlcurran.showcaseview.ShowcaseView;
-import com.github.amlcurran.showcaseview.targets.ActionViewTarget;
 import com.github.amlcurran.showcaseview.targets.ViewTarget;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
-import com.google.android.gms.games.GamesActivityResultCodes;
-import com.google.android.gms.games.multiplayer.Multiplayer;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -60,11 +62,7 @@ public class SignIn extends Activity  implements
      * Google API client.
      */
     private GoogleApiClient mGoogleApiClient;
-
-    /**
-     * Determines if the client is in a resolution state, and
-     * waiting for resolution intent to return.
-     */
+    private PopupWindow mPopupWindow;
     private boolean mIsInResolution;
 
     private boolean mSignInAutomatically;
@@ -134,8 +132,35 @@ public class SignIn extends Activity  implements
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
+        inflater.inflate(R.menu.menu_sign_in, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.instructions:
+            showInstructions(this.findViewById(R.id.instructionsButton));
+            break;
+            case R.id.signOut:
+                if(mGoogleApiClient.isConnected()){
+                    mGoogleApiClient.disconnect();
+                }
+                break;
+        }
+        return true;
+    }
+
+    public void showInstructions(View v){
+        LayoutInflater inflater = (LayoutInflater)
+                this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mPopupWindow = new PopupWindow(
+                inflater.inflate(R.layout.instructions_layout, null, false),
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                true);
+        mPopupWindow.showAtLocation(this.findViewById(R.id.signin_linear_layout), Gravity.CENTER, 0, 0);
     }
 
     @Override
@@ -189,6 +214,33 @@ public class SignIn extends Activity  implements
         if(mGoogleApiClient.isConnected()) {
             Intent intent = new Intent(this, InvitePlayerActivity.class);
             startActivityForResult(intent, START_ACTIVITY_REQUEST);
+        }
+    }
+
+    int curImage = 0;
+
+    public void changePicture(View v){
+        ImageButton ib;
+        switch (curImage){
+            case 0:
+                ib = (ImageButton) mPopupWindow.getContentView().findViewById(R.id.imageButton);
+                ib.setImageResource(R.drawable.player1_instructuctions2_small);
+                curImage++;
+                break;
+            case 1:
+                ib = (ImageButton) mPopupWindow.getContentView().findViewById(R.id.imageButton);
+                ib.setImageResource(R.drawable.player1_instructuctions3_small);
+                curImage++;
+                break;
+            case 2:
+                ib = (ImageButton) mPopupWindow.getContentView().findViewById(R.id.imageButton);
+                ib.setImageResource(R.drawable.player1_instructuctions4_small);
+                curImage++;
+                break;
+            case 3:
+                curImage = 0;
+                mPopupWindow.dismiss();
+                break;
         }
     }
 
@@ -255,7 +307,8 @@ public class SignIn extends Activity  implements
             {
                 switch (resultCode){
                     case(0):
-                        finish();
+                        Log.d(TAG, "result code 0, leaving app");
+                        //finish();
                         break;
                     case(1):
                         if(mGoogleApiClient.isConnected()) {
@@ -384,6 +437,7 @@ public class SignIn extends Activity  implements
                 return e.getMessage();
             }
         }
+
 
         @Override
         protected void onPostExecute(String result) {

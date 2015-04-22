@@ -121,8 +121,13 @@ public class InvitePlayerActivity extends StartActivity implements OnInvitationR
     }
 
     public void playClick(View v){
-        Intent i = Games.RealTimeMultiplayer.getSelectOpponentsIntent(mGoogleApiClient, 1, 2, true);
-        startActivityForResult(i, RC_SELECT_PLAYERS);
+        if(mGoogleApiClient.isConnected()) {
+            Intent i = Games.RealTimeMultiplayer.getSelectOpponentsIntent(mGoogleApiClient, 1, 2, true);
+            startActivityForResult(i, RC_SELECT_PLAYERS);
+        }
+        else{
+            mGoogleApiClient.connect();
+        }
     }
 
 

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".StartActivity"
+    android:background="@color/common_signin_btn_default_background">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="0"
+            android:id="@+id/popupScore"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="#ffffffff"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Your Score is :"
+            android:id="@+id/textView3"
+            android:textColor="#ffffffff"/>
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Keep Playing"
+        android:id="@+id/playAgain"
+        android:layout_gravity="center_horizontal"
+        android:onClick="playAgain"
+        android:textColor="#ffffffff"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Exit"
+        android:id="@+id/menu"
+        android:layout_gravity="center_horizontal"
+        android:onClick="returnToMenu"
+        android:textColor="#ffffffff"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="viewLeaderBoard"
+        android:layout_gravity="center_horizontal"
+        android:text="View leaderboard"
+        android:id="@+id/leaderboard"
+        android:textColor="#ffffffff"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="startCorrection"
+        android:layout_gravity="center_horizontal"
+        android:text="Correct Your Speech"
+        android:id="@+id/corrections"
+        android:textColor="#ffffffff"/>
+
+</LinearLayout><!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/src/main/res/layout/finish_game_layout.xml -->
