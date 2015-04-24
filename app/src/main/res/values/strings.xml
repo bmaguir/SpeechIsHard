@@ -2,7 +2,7 @@
 <resources>
   <string name="app_name">SpeechIsHard</string>
     <string name="app_id">101377606831</string>
-    <string name="LEADERBOARD_ID">CgkIr4nO1PkCEAIQCQ</string>
+    <string name="LEADERBOARD_ID">CgkIr4nO1PkCEAIQCg</string>
     <string name="LEADERBOARD_GUIDE_ID">CgkIr4nO1PkCEAIQAw</string>
     <string name="title_activity_practice_play">Practice</string>
 

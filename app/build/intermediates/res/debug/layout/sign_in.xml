@@ -50,5 +50,12 @@
         android:id="@+id/button3"
         android:layout_gravity="center_horizontal"
         android:onClick="startPractice"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Instructions"
+        android:id="@+id/instructionsButton"
+        android:layout_gravity="center_horizontal"
+        android:onClick="showInstructions"/>
 
 </LinearLayout><!-- From: file:/C:/Dev/GitHub/SpeechIsHard/app/src/main/res/layout/sign_in.xml -->

@@ -224,20 +224,30 @@ public class SignIn extends Activity  implements
         switch (curImage){
             case 0:
                 ib = (ImageButton) mPopupWindow.getContentView().findViewById(R.id.imageButton);
-                ib.setImageResource(R.drawable.player1_instructuctions2_small);
+                ib.setImageResource(R.drawable.player1_instructuctions2);
                 curImage++;
                 break;
             case 1:
                 ib = (ImageButton) mPopupWindow.getContentView().findViewById(R.id.imageButton);
-                ib.setImageResource(R.drawable.player1_instructuctions3_small);
+                ib.setImageResource(R.drawable.player1_instructuctions3);
                 curImage++;
                 break;
             case 2:
                 ib = (ImageButton) mPopupWindow.getContentView().findViewById(R.id.imageButton);
-                ib.setImageResource(R.drawable.player1_instructuctions4_small);
+                ib.setImageResource(R.drawable.player1_instructuctions4);
                 curImage++;
                 break;
             case 3:
+                ib = (ImageButton) mPopupWindow.getContentView().findViewById(R.id.imageButton);
+                ib.setImageResource(R.drawable.player2_instructions);
+                curImage++;
+                break;
+            case 4:
+                ib = (ImageButton) mPopupWindow.getContentView().findViewById(R.id.imageButton);
+                ib.setImageResource(R.drawable.player2_instructions2);
+                curImage++;
+                break;
+            case 5:
                 curImage = 0;
                 mPopupWindow.dismiss();
                 break;
