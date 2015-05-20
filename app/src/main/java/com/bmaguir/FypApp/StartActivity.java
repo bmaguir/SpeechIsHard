@@ -358,8 +358,8 @@ public class StartActivity extends Activity implements
     }
 
     public void startCorrection(View v){
-        Intent intent = new Intent(this, correctionFragment.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, correctionFragment.class);
+        //startActivity(intent);
     }
 
     @Override
@@ -772,8 +772,11 @@ public class StartActivity extends Activity implements
         public void onError(int error)
         {
             // mSpeechRecognizer.startListening(mSpeechRecognizerIntent);
-
+            mSpeechRecognizer.cancel();
+            mIsListening = false;
             Log.d(TAG, "error = " + error);
+            Button b = (Button) findViewById(R.id.speak);
+            b.setText("Press to Speak");
         }
 
         @Override
